@@ -7,12 +7,15 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".src.main.myPage.MyPageFragment">
 
     <!-- 상단 바 -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/myPage_ab_layout"
         android:layout_width="match_parent"
+        android:background="@color/white"
         app:elevation="0dp"
         android:layout_height="55dp">
 
@@ -32,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/apple_sd_gothic_neo"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:text="@string/my_page_tv_topbar"
@@ -115,24 +119,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_cardview"
-                android:layout_width="0dp"
-                android:layout_height="220dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="15dp"
-                android:background="@color/black"
-                android:orientation="vertical"
-                app:cardElevation="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_mypage_info"
                 app:cardCornerRadius="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,227 +141,265 @@
                     android:orientation="vertical">
 
                     <!-- 첫 번째 칸(로그인x) -->
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <RelativeLayout
+                        android:id="@+id/cv_col_one"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/stroke_mypage_bottom">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/myPage_tv_login_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginStart="10dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginBottom="5dp"
-                            android:text="@string/my_page_tv_login_info"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:text="@string/my_page_tv_login_info" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/myPage_tv_lets_login"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@id/myPage_tv_login_info"
+                            android:layout_marginStart="15dp"
                             android:drawableEnd="@drawable/ic_mypage_right_arrow"
                             android:text="@string/my_page_tv_lets_login"
                             android:textColor="@color/myPageBlue"
+                            android:layout_marginBottom="15dp"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="@id/myPage_tv_login_info"
-                            app:layout_constraintTop_toBottomOf="@id/myPage_tv_login_info" />
+                            android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/myPage_btn_my_profit"
                             android:layout_width="75dp"
-                            android:layout_height="0dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginStart="100dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="15dp"
                             android:background="@drawable/bg_mypage_btn_my_profit"
                             android:text="@string/my_page_btn_my_profit"
                             android:textColor="@color/myPageBlue"
-                            android:textSize="14sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/myPage_tv_lets_login"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:textSize="15sp" />
+                    </RelativeLayout>
 
-                    <!-- 두번째 칸 (포인트)-->
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <RelativeLayout
+                        android:id="@+id/cv_col_two"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_mypage_bottom">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_point"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_mypage_point"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/ic_mypage_point" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/mypage_tv_point"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/mypage_iv_point"
                             android:text="@string/my_page_tv_point"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:layout_constraintStart_toEndOf="@id/mypage_iv_point"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_marginTop="14dp"
+                            android:textSize="18sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_point_arrow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_mypage_arrow_right_default"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </RelativeLayout>
 
-                    <!-- 세 번째 칸(야놀자 코인) -->
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <RelativeLayout
+                        android:id="@+id/cv_col_three"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_mypage_bottom">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coin"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_mypage_coin"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/ic_mypage_coin" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/mypage_tv_coin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_toEndOf="@id/mypage_iv_coin"
                             android:text="@string/my_page_tv_coin"
-                            android:textSize="20sp"
                             android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@id/mypage_iv_coin"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:textSize="18sp" />
 
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/mypage_tv_after_login"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_toStartOf="@id/mypage_iv_coin_arrow"
+                            android:gravity="top"
                             android:text="@string/my_page_tv_after_login"
-                            app:layout_constraintEnd_toStartOf="@id/mypage_iv_coin_arrow"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:textSize="12sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coin_arrow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_mypage_arrow_right_default"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </RelativeLayout>
 
-                    <!-- 네 번째 칸(쿠폰)-->
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <RelativeLayout
+                        android:id="@+id/cv_col_four"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_mypage_bottom">
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coupon"
                             android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_mypage_coupon"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:src="@drawable/ic_mypage_coupon" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/mypage_tv_coupon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_toEndOf="@id/mypage_iv_coupon"
                             android:text="@string/my_page_tv_coupon"
-                            android:textSize="20sp"
                             android:textColor="@color/black"
-                            app:layout_constraintStart_toEndOf="@id/mypage_iv_coupon"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:textSize="18sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coupon_arrow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_mypage_arrow_right_default"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </RelativeLayout>
 
-                    <!-- 다섯 번 째 칸(나의 후기)-->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/cv_col_five"
+                            android:layout_width="233dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:background="@drawable/stroke_mypage_right">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/myPage_iv_review"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_mypage_review"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="15dp"
+                                android:src="@drawable/ic_mypage_review" />
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/mypage_tv_review"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="20sp"
-                                android:textColor="@color/black"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_toEndOf="@id/myPage_iv_review"
                                 android:text="@string/my_page_tv_my_review"
-                                app:layout_constraintStart_toEndOf="@id/myPage_iv_review"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/mypage_iv_review_arrow"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_mypage_arrow_right_default"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/ic_mypage_arrow_right_default" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/cv_col_five_row_two"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_height="match_parent">
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/myPage_iv_like"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_mypage_like"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:src="@drawable/ic_mypage_like" />
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:id="@+id/mypage_tv_like"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_toEndOf="@id/myPage_iv_like"
                                 android:text="@string/my_page_tv_like"
-                                android:textSize="20sp"
                                 android:textColor="@color/black"
-                                app:layout_constraintStart_toEndOf="@id/myPage_iv_like"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textSize="18sp" />
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/myPage_iv_like_arrow"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_mypage_arrow_right_default"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:src="@drawable/ic_mypage_arrow_right_default" />
+                        </RelativeLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -368,18 +407,12 @@
             <!-- 광고 이미지(1) -->
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mypage_cardview"
-                android:src="@drawable/mypage_add_img"
-                android:scaleType="centerCrop"
-                android:layout_marginTop="10dp"/>
+                android:layout_height="80dp"
+                android:layout_marginTop="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/mypage_add_img" />
 
 
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
