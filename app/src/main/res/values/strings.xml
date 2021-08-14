@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SoftSquared Android Kotlin Template</string>
+    <string name="app_name">야놀자</string>
 
     <!-- Naming Rules -->
     <!-- 도메인명_컴포넌트함축어_용도(=목적) -->
@@ -24,5 +24,21 @@
     <string name="my_page_btn_counting_number">숫자 세기</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="my_page_tv_topbar">MY 야놀자</string>
+
+    <!-- 카드 뷰(1) -->
+    <string name="my_page_tv_login_info">가입하고, 초특가 혜택 받자!</string>
+    <string name="my_page_tv_lets_login">로그인 및 회원가입 하기</string>
+    <string name="my_page_btn_my_profit">MY 혜택</string>
+    <string name="my_page_tv_point">포인트</string>
+    <string name="my_page_tv_coin">야놀자 코인</string>
+    <string name="my_page_tv_after_login">계정연동 후 사용하세요</string>
+    <string name="my_page_tv_coupon">쿠폰</string>
+    <string name="my_page_tv_my_review">나의 후기</string>
+    <string name="my_page_tv_like">찜</string>
+
+
+
 
 </resources>
