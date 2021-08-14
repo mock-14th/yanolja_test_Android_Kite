@@ -8,7 +8,10 @@
 
     <!-- Main -->
     <string name="main_btm_nav_home_title">홈</string>
-    <string name="main_btm_nav_my_page_title">마이페이지</string>
+    <string name="main_btm_nav_region_title">지역</string>
+    <string name="main_btm_nav_my_near_title">내주변</string>
+    <string name="main_btm_nav_like_title">찜</string>
+    <string name="main_btm_nav_my_page_title">MY 야놀자</string>
 
     <!-- Home -->
     <string name="home_btn_try_get_http_method">GET API 보내기</string>
@@ -19,5 +22,7 @@
     <!-- MyPage -->
     <string name="my_page_tv_counter">%1d 번 눌렀습니다.</string>
     <string name="my_page_btn_counting_number">숫자 세기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

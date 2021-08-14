@@ -4,15 +4,36 @@
 
     <item
         android:id="@+id/menu_main_btm_nav_home"
-        android:icon="@drawable/ic_total_view_unselected"
+        android:icon="@drawable/ic_btm_navi_home"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"
         android:title="@string/main_btm_nav_home_title" />
+    <item
+        android:id="@+id/menu_main_btm_nav_region"
+        android:icon="@drawable/ic_btm_navi_region"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_btm_nav_region_title" />
+    <item
+        android:id="@+id/menu_main_btm_nav_my_near"
+        android:icon="@drawable/ic_btm_navi_my_near"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_btm_nav_my_near_title" />
+    <item
+        android:id="@+id/menu_main_btm_nav_like"
+        android:icon="@drawable/ic_btm_navi_like"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_btm_nav_like_title" />
 
     <item
         android:id="@+id/menu_main_btm_nav_my_page"
-        android:icon="@drawable/ic_setting_view_unselected"
+        android:icon="@drawable/ic_btm_navi_profile"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_my_page_title" />

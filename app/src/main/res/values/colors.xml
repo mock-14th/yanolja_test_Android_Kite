@@ -8,6 +8,10 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <!--바텀 네비게이션-->
+    <color name="navi_default">#BBBBBB</color>
+    <color name="navi_checked">#EB497A</color>
+
     <color name="whiteForBackground">#FFFFFF</color>
     <color name="blackForText">#4a4a4a</color>
     <color name="redForText">#d9534f</color>
