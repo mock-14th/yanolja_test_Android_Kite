@@ -7,8 +7,6 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white"
-    android:clipChildren="false"
-    android:clipToPadding="false"
     tools:context=".src.main.myPage.MyPageFragment">
 
     <!-- 상단 바 -->
@@ -16,108 +14,131 @@
         android:id="@+id/myPage_ab_layout"
         android:layout_width="match_parent"
         android:background="@color/white"
-        app:elevation="0dp"
-        android:layout_height="55dp">
+        android:elevation="2dp"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/myPage_tb_layout"
+        
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="true"
+            app:expandedTitleTextAppearance="@android:color/transparent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/myPage_cl"
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/myPage_tb_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="60dp"
+                app:layout_collapseMode="pin"
+                android:elevation="0dp">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/myPage_topbar_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/apple_sd_gothic_neo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/my_page_tv_topbar"
-                    android:textColor="@color/black" />
 
-                <FrameLayout
-                    android:id="@+id/myPage_frame_layout_1"
-                    style="?attr/actionButtonStyle"
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/myPage_frame_layout_2"
-                    android:clipToPadding="false"
-                    android:focusable="true"
-                    android:layout_marginTop="3dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/myPage_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="72dp"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                    <ImageView
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/myPage_topbar_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_mypage_topbar_alarm"/>
+                        android:layout_marginTop="13dp"
+                        android:fontFamily="@font/apple_sd_gothic_neo"
+                        android:text="@string/my_page_tv_topbar"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/myPage_tv_alarm_badge"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="right|end|top"
-                        android:layout_marginEnd="-5dp"
-                        android:layout_marginRight="-5dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/mypage_badge_bg"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:textColor="@android:color/white"
-                        android:text="N"
-                        android:textSize="10sp"/>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/myPage_frame_layout_2"
-                    style="?attr/actionButtonStyle"
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:clipToPadding="false"
-                    android:focusable="true"
-                    android:layout_marginTop="3dp">
-
-                    <ImageView
+                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/myPage_frame_layout_1"
+                        style="?attr/actionButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_mypage_topbar_shop"/>
+                        android:layout_marginTop="5dp"
+                        android:clipToPadding="false"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toStartOf="@id/myPage_frame_layout_2"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/myPage_tv_shop_badge"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="right|end|top"
-                        android:layout_marginEnd="-5dp"
-                        android:layout_marginRight="-5dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/mypage_badge_bg"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:textColor="@android:color/white"
-                        android:text="0"
-                        android:textSize="10sp"/>
-                </FrameLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_mypage_topbar_alarm" />
+
+                        <TextView
+                            android:id="@+id/myPage_tv_alarm_badge"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="right|end|top"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="-5dp"
+                            android:layout_marginRight="-5dp"
+                            android:background="@drawable/mypage_badge_bg"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="N"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+
+                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/myPage_frame_layout_2"
+                        style="?attr/actionButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:clipToPadding="false"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_mypage_topbar_shop" />
+
+                        <TextView
+                            android:id="@+id/myPage_tv_shop_badge"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="right|end|top"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="-5dp"
+                            android:layout_marginRight="-5dp"
+                            android:background="@drawable/mypage_badge_bg"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="0"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </FrameLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.Toolbar>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <ScrollView
+        android:id="@+id/myPage_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_mypage_info"
                 app:cardCornerRadius="15dp"
@@ -146,7 +167,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:background="@drawable/stroke_mypage_bottom">
+                        android:background="@drawable/effect_btn_click_ripple">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/myPage_tv_login_info"
@@ -154,8 +175,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
-                            android:layout_marginTop="15dp"
                             android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
                             android:layout_marginBottom="5dp"
                             android:text="@string/my_page_tv_login_info" />
 
@@ -165,10 +186,10 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/myPage_tv_login_info"
                             android:layout_marginStart="15dp"
+                            android:layout_marginBottom="15dp"
                             android:drawableEnd="@drawable/ic_mypage_right_arrow"
                             android:text="@string/my_page_tv_lets_login"
                             android:textColor="@color/myPageBlue"
-                            android:layout_marginBottom="15dp"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
@@ -210,19 +231,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:layout_marginTop="14dp"
                             android:layout_toEndOf="@id/mypage_iv_point"
                             android:text="@string/my_page_tv_point"
                             android:textColor="@color/black"
-                            android:layout_marginTop="14dp"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_point_arrow"
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_mypage_arrow_right_default" />
                     </RelativeLayout>
 
@@ -253,15 +274,15 @@
                             android:layout_toEndOf="@id/mypage_iv_coin"
                             android:text="@string/my_page_tv_coin"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/mypage_tv_after_login"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="4dp"
                             android:layout_marginTop="14dp"
+                            android:layout_marginEnd="4dp"
                             android:layout_toStartOf="@id/mypage_iv_coin_arrow"
                             android:gravity="top"
                             android:text="@string/my_page_tv_after_login"
@@ -273,8 +294,8 @@
                             android:layout_height="16dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_mypage_arrow_right_default" />
                     </RelativeLayout>
 
@@ -306,15 +327,15 @@
                             android:layout_toEndOf="@id/mypage_iv_coupon"
                             android:text="@string/my_page_tv_coupon"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coupon_arrow"
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_mypage_arrow_right_default" />
 
 
@@ -351,15 +372,15 @@
                                 android:layout_toEndOf="@id/myPage_iv_review"
                                 android:text="@string/my_page_tv_my_review"
                                 android:textColor="@color/black"
-                                android:textSize="18sp" />
+                                android:textSize="16sp" />
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/mypage_iv_review_arrow"
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="10dp"
                                 android:layout_marginTop="20dp"
+                                android:layout_marginEnd="10dp"
                                 android:src="@drawable/ic_mypage_arrow_right_default" />
 
                         </RelativeLayout>
@@ -389,7 +410,7 @@
                                 android:layout_toEndOf="@id/myPage_iv_like"
                                 android:text="@string/my_page_tv_like"
                                 android:textColor="@color/black"
-                                android:textSize="18sp" />
+                                android:textSize="16sp" />
 
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/myPage_iv_like_arrow"
@@ -407,10 +428,695 @@
             <!-- 광고 이미지(1) -->
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="30dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/mypage_add_img" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/myPage_tv_booked_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/my_page_tv_book_list_logout"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/my_page_tv_korea_all_book"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="14dp"
+                        android:src="@drawable/ic_mypage_arrow_right_default" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:background="@drawable/stroke_mypage_bottom"
+                        android:id="@+id/myPage_ll_national_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_alignParentTop="true"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/my_page_tv_korea_room_book"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/myPage_ll_national_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/stroke_mypage_bottom"
+                        android:layout_below="@id/myPage_ll_national_1"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/my_page_tv_korea_leisure_book"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/myPage_ll_national_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/stroke_mypage_bottom"
+                        android:layout_below="@id/myPage_ll_national_2"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/my_page_tv_ktx_book"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/myPage_ll_national_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_below="@id/myPage_ll_national_3"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="400dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/my_page_tv_restaurant_book"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="15dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_mypage_bottom">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/my_page_tv_aboard_book"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="14dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/my_page_tv_aboard_insurance"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="14dp"
+                            android:src="@drawable/ic_mypage_arrow_right_default" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- 광고 이미지(2) -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myPage_iv_add_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mypage_add_img_2" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/stroke_mypage_top_bottom">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/stroke_mypage_right_and_left">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/event_list_one_iv"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/mypage_event_list_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_page_event_list_one"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/event_list_one_iv"
+                        app:layout_constraintStart_toStartOf="@id/event_list_one_iv"
+                        app:layout_constraintTop_toBottomOf="@id/event_list_one_iv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/stroke_mypage_right_and_left">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/event_list_two_iv"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/mypage_event_list_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_page_event_list_two"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/event_list_two_iv"
+                        app:layout_constraintStart_toStartOf="@id/event_list_two_iv"
+                        app:layout_constraintTop_toBottomOf="@id/event_list_two_iv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/stroke_mypage_right_and_left">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/event_list_three_iv"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/mypage_event_list_3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_page_event_list_three"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/event_list_three_iv"
+                        app:layout_constraintStart_toStartOf="@id/event_list_three_iv"
+                        app:layout_constraintTop_toBottomOf="@id/event_list_three_iv" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/stroke_mypage_right_and_left">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/event_list_four_iv"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/mypage_event_list_4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_page_event_list_four"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/event_list_four_iv"
+                        app:layout_constraintStart_toStartOf="@id/event_list_four_iv"
+                        app:layout_constraintTop_toBottomOf="@id/event_list_four_iv" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/myPage_bottom_cl"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@color/myPageBg">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/myPage_cl_yanolza"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myPage_iv_happy"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mypage_happy"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/myPage_tv_yanolza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/my_page_yanolza"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/myPage_iv_happy"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_mypage_arrow_right_default"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/myPage_customer_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/myPage_cl_yanolza">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/stroke_mypage_bottom">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/myPage_iv_customer"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/mypage_customer"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/myPage_tv_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/my_page_customer"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toEndOf="@id/myPage_iv_customer"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/myPage_iv_customer_arrow"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_mypage_arrow_right_default"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:background="@drawable/stroke_mypage_bottom_and_right"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:text="@string/my_page_kakao"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/ic_mypage_arrow_right_default"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:background="@drawable/stroke_mypage_bottom"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:text="@string/my_page_connect"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/ic_mypage_arrow_right_default"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/myPage_four_info_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/stroke_mypage_top_bottom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/myPage_customer_cl">
+
+                    <LinearLayout
+                        android:id="@+id/myPage_bottom_ll_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/stroke_mypage_bottom_and_right">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/my_page_FAQ"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_mypage_arrow_right_default"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/stroke_mypage_bottom">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/my_page_notice"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_mypage_arrow_right_default"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/myPage_bottom_ll_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        app:layout_constraintStart_toStartOf="@id/myPage_bottom_ll_1"
+                        app:layout_constraintTop_toBottomOf="@id/myPage_bottom_ll_1">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/stroke_mypage_bottom_and_right">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/my_page_yanolza_info"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_mypage_arrow_right_default"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/stroke_mypage_bottom">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="@string/my_page_setting"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_mypage_arrow_right_default"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/myPage_bottom_ll_2"
+                        app:layout_constraintTop_toBottomOf="@id/myPage_bottom_ll_2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </LinearLayout>

@@ -18,7 +18,7 @@
         android:title="@string/main_btm_nav_region_title" />
     <item
         android:id="@+id/menu_main_btm_nav_my_near"
-        android:icon="@drawable/ic_btm_navi_my_near"
+        android:icon="@drawable/ic_btm_navi_near"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"

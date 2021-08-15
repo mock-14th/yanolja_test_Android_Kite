@@ -24,9 +24,7 @@
     <string name="my_page_btn_counting_number">숫자 세기</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="my_page_tv_topbar">MY 야놀자</string>
-
     <!-- 카드 뷰(1) -->
     <string name="my_page_tv_login_info">가입하고, 초특가 혜택 받자!</string>
     <string name="my_page_tv_lets_login">로그인 및 회원가입 하기</string>
@@ -37,6 +35,33 @@
     <string name="my_page_tv_coupon">쿠폰</string>
     <string name="my_page_tv_my_review">나의 후기</string>
     <string name="my_page_tv_like">찜</string>
+    <!--예약 내역-->
+    <string name="my_page_tv_book_list_logout">비회원 예약 내역</string>
+    <string name="my_page_tv_book_list_login">예약 내역</string>
+    <string name="my_page_tv_korea_all_book">국내여행 통합예약 (6/9 이전 예약)</string>
+    <string name="my_page_tv_korea_room_book">국내 숙소 (6/9 이전 예약)</string>
+    <string name="my_page_tv_korea_leisure_book">국내 레저/모바일 교환권 (6/9 이전 예약)</string>
+    <string name="my_page_tv_ktx_book">KTX (6/9 이전 예약)</string>
+    <string name="my_page_tv_restaurant_book">맛집</string>
+    <string name="my_page_tv_aboard_book">해외 예약 내역</string>
+    <string name="my_page_tv_aboard_insurance">해외 여행자 보험</string>
+    <!-- 이벤트 리스트 -->
+    <string name="my_page_event_list_one">이벤트</string>
+    <string name="my_page_event_list_two">기획전</string>
+    <string name="my_page_event_list_three">리서치 참여</string>
+    <string name="my_page_event_list_four">당첨자 발표</string>
+    <!-- 하단 cl -->
+    <string name="my_page_yanolza">믿고 쓰는 야놀자!</string>
+    <string name="my_page_customer">고객센터</string>
+    <string name="my_page_kakao">카카오톡 1:1 문의</string>
+    <string name="my_page_connect">상담원 연결</string>
+    <string name="my_page_FAQ">자주 묻는 질문 FAQ</string>
+    <string name="my_page_yanolza_info">야놀자 정보</string>
+    <string name="my_page_notice">공지사항</string>
+    <string name="my_page_setting">설정</string>
+
+
+
 
 
 

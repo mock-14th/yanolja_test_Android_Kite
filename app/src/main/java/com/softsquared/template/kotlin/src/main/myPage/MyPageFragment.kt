@@ -2,14 +2,21 @@ package com.softsquared.template.kotlin.src.main.myPage
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
+import com.google.android.material.appbar.AppBarLayout
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseFragment
 import com.softsquared.template.kotlin.databinding.FragmentMyPageBinding
 
 class MyPageFragment :
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 로그인 화면 이동
+        binding.cvColOne.setOnClickListener {
+
+        }
     }
 }

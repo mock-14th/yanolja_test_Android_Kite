@@ -19,5 +19,6 @@
     <!-- MyPage -->
     <color name="myPageBlue">#2B51AD</color>
     <color name="strokeColor">#D9D9D9</color>
+    <color name="myPageBg">#F2F2F2</color>
 
 </resources>
