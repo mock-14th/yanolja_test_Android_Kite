@@ -1,0 +1,45 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/navi_default"> <!-- Ripple Effect 색상 -->
+    <!-- 배경색 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/>
+            <padding android:top="10dp"
+                android:bottom="10dp"
+                android:right="10dp"
+                android:left="10dp">
+            </padding>
+            <corners
+                android:bottomLeftRadius="5dp"
+                android:bottomRightRadius="5dp"
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp" />
+        </shape>
+    </item>
+
+    <item
+       >
+        <shape android:shape="rectangle" >
+            <padding android:left="10dp"
+                android:right="10dp"
+                android:bottom="10dp"
+                android:top="10dp">
+            </padding>
+            <!-- 테두리 두께 및 색상 설정 -->
+            <stroke
+                android:width="1dp"
+                android:color="@color/myPageBlue" />
+
+            <solid android:color="#FFFFFF" />
+
+            <corners
+                android:bottomLeftRadius="5dp"
+                android:bottomRightRadius="5dp"
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp" />
+        </shape>
+
+    </item>
+
+
+</ripple>

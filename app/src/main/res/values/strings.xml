@@ -53,16 +53,31 @@
     <!-- 하단 cl -->
     <string name="my_page_yanolza">믿고 쓰는 야놀자!</string>
     <string name="my_page_customer">고객센터</string>
+    <string name="my_page_customer_time">365일 오전 9시 ~ 익일 오전 3시 운영</string>
     <string name="my_page_kakao">카카오톡 1:1 문의</string>
     <string name="my_page_connect">상담원 연결</string>
     <string name="my_page_FAQ">자주 묻는 질문 FAQ</string>
     <string name="my_page_yanolza_info">야놀자 정보</string>
     <string name="my_page_notice">공지사항</string>
     <string name="my_page_setting">설정</string>
+    <!-- 로그인 -->
+    <string name="login_topbar_tv_login">로그인</string>
+    <string name="login_tv_login">야놀자 로그인</string>
+    <string name="login_tv_easy_login">간편 로그인</string>
+    <string name="login_id">아이디 또는 이메일</string>
+    <string name="login_pw">비밀번호</string>
+    <string name="login_find_pw">비밀번호 찾기</string>
+    <string name="login_register">야놀자 회원가입</string>
+    <!--소셜로그인 tab-->
+    <string name="social_phone">휴대폰 번호로 로그인</string>
+    <string name="social_kakao">카카오 로그인</string>
+    <string name="social_naver">네이버 로그인</string>
 
-
-
-
+    <!-- 설정 -->
+    <string name="setting_app_lock">암호잠금</string>
+    <string name="setting_notion">알림 설정</string>
+    <string name="setting_personal_info">개인정보 권한설정</string>
+    <string name="setting_license">오픈소스 라이선스</string>
 
 
 

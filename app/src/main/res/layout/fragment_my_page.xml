@@ -14,24 +14,14 @@
         android:id="@+id/myPage_ab_layout"
         android:layout_width="match_parent"
         android:background="@color/white"
-        android:elevation="2dp"
+        android:elevation="0dp"
         app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
         android:layout_height="wrap_content">
-
-        
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fitsSystemWindows="true"
-            app:expandedTitleTextAppearance="@android:color/transparent">
-
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/myPage_tb_layout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:layout_collapseMode="pin"
                 android:elevation="0dp">
 
 
@@ -127,9 +117,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>
-
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -153,7 +140,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_mypage_info"
-                app:cardCornerRadius="15dp"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
@@ -165,7 +152,7 @@
                     <RelativeLayout
                         android:id="@+id/cv_col_one"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1.5"
                         android:background="@drawable/effect_btn_click_ripple">
 
@@ -196,13 +183,14 @@
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/myPage_btn_my_profit"
                             android:layout_width="75dp"
-                            android:layout_height="30dp"
+                            android:layout_height="32dp"
+                            android:padding="5dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="100dp"
                             android:layout_marginTop="25dp"
                             android:layout_marginEnd="15dp"
-                            android:background="@drawable/bg_mypage_btn_my_profit"
+                            android:background="@drawable/effect_btn_click"
                             android:text="@string/my_page_btn_my_profit"
                             android:textColor="@color/myPageBlue"
                             android:textSize="15sp" />
@@ -211,7 +199,7 @@
                     <RelativeLayout
                         android:id="@+id/cv_col_two"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/stroke_mypage_bottom">
 
@@ -231,7 +219,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="16dp"
                             android:layout_toEndOf="@id/mypage_iv_point"
                             android:text="@string/my_page_tv_point"
                             android:textColor="@color/black"
@@ -250,7 +238,7 @@
                     <RelativeLayout
                         android:id="@+id/cv_col_three"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/stroke_mypage_bottom">
 
@@ -270,7 +258,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="16dp"
                             android:layout_toEndOf="@id/mypage_iv_coin"
                             android:text="@string/my_page_tv_coin"
                             android:textColor="@color/black"
@@ -281,12 +269,12 @@
                             android:id="@+id/mypage_tv_after_login"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="18dp"
                             android:layout_marginEnd="4dp"
                             android:layout_toStartOf="@id/mypage_iv_coin_arrow"
                             android:gravity="top"
                             android:text="@string/my_page_tv_after_login"
-                            android:textSize="12sp" />
+                            android:textSize="13sp" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coin_arrow"
@@ -294,7 +282,7 @@
                             android:layout_height="16dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
                             android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_mypage_arrow_right_default" />
                     </RelativeLayout>
@@ -302,7 +290,7 @@
                     <RelativeLayout
                         android:id="@+id/cv_col_four"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/stroke_mypage_bottom">
 
@@ -323,7 +311,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_marginStart="5dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="16dp"
                             android:layout_toEndOf="@id/mypage_iv_coupon"
                             android:text="@string/my_page_tv_coupon"
                             android:textColor="@color/black"
@@ -334,7 +322,7 @@
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
                             android:layout_marginEnd="10dp"
                             android:src="@drawable/ic_mypage_arrow_right_default" />
 
@@ -348,8 +336,9 @@
 
                         <RelativeLayout
                             android:id="@+id/cv_col_five"
-                            android:layout_width="233dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
                             android:background="@drawable/stroke_mypage_right">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -368,7 +357,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="14dp"
+                                android:layout_marginTop="16dp"
                                 android:layout_toEndOf="@id/myPage_iv_review"
                                 android:text="@string/my_page_tv_my_review"
                                 android:textColor="@color/black"
@@ -387,7 +376,8 @@
 
                         <RelativeLayout
                             android:id="@+id/cv_col_five_row_two"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="match_parent">
 
                             <androidx.appcompat.widget.AppCompatImageView
@@ -406,7 +396,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="14dp"
+                                android:layout_marginTop="16dp"
                                 android:layout_toEndOf="@id/myPage_iv_like"
                                 android:text="@string/my_page_tv_like"
                                 android:textColor="@color/black"
@@ -430,8 +420,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginTop="20dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/mypage_add_img" />
+                android:src="@drawable/mypage_add_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/myPage_tv_booked_list"
@@ -450,8 +441,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -482,8 +473,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -597,8 +588,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -805,10 +796,10 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/myPage_iv_happy"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="25dp"
+                        android:layout_height="27dp"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="5dp"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
@@ -821,9 +812,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="26dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="13dp"
                         android:text="@string/my_page_yanolza"
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@id/myPage_iv_happy"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -878,23 +870,25 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
                                 android:layout_marginTop="15dp"
+                                android:textStyle="bold"
                                 android:text="@string/my_page_customer"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintStart_toEndOf="@id/myPage_iv_customer"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/myPage_iv_customer_arrow"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:background="@android:color/transparent"
-                                android:src="@drawable/ic_mypage_arrow_right_default"
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/myPage_tv_customer_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="16dp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="14dp"
+                                android:text="@string/my_page_customer_time"
+                                android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <LinearLayout
@@ -1077,6 +1071,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/setting_layout"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -1115,10 +1110,20 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/myPage_float_btn_go_to_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:scaleType="centerCrop"
+        app:fabSize="normal"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_mypage_btn_go_top"
+        android:layout_margin="16dp" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

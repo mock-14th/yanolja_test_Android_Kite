@@ -9,12 +9,14 @@
         android:name=".config.ApplicationClass"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launch_icon_foreground"
-        android:roundIcon="@mipmap/ic_launch_icon_round"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launch_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity android:name=".src.main.login.LoginSettingActivity"></activity>
+        <activity android:name=".src.main.login.LoginActivity" />
         <activity
             android:name=".src.splash.SplashActivity"
             android:screenOrientation="portrait"

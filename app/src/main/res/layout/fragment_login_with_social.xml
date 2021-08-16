@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_frame_layout"
+    android:background="@drawable/stroke_top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/social_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:padding="20dp"
+        android:textColor="#9E9E9E"
+        android:background="#F2F2F2"
+        android:backgroundTint="@android:color/transparent"
+        android:text="간편 로그인을 위해서는 야놀자 회원가입 후,\n MY 야놀자 > 설정에서 계정연동이 필요합니다"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="@id/social_info"
+        app:layout_constraintTop_toBottomOf="@id/social_info"
+        app:layout_constraintEnd_toEndOf="@id/social_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/bg_social_login_select">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/social_iv_phone"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_social_login_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/social_tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/social_phone"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_social_login_select">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/social_iv_kakao"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_social_login_kakao"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/social_tv_kakao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/social_kakao"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/bg_social_login_select">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/social_iv_naver"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_social_login_naver" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/social_tv_naver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/social_naver"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/naverColor"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

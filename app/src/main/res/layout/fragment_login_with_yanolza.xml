@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_frame_layout"
+    android:background="@drawable/stroke_top"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/TextInputLayoutStyle"
+            android:theme="@style/TextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_id" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pw_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="@id/id_text_layout"
+        app:layout_constraintStart_toStartOf="@id/id_text_layout"
+        app:layout_constraintTop_toBottomOf="@id/id_text_layout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/login_pw" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/login_login_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/btn_login_login"
+        android:text="@string/login_topbar_tv_login"
+        app:layout_constraintStart_toStartOf="@id/pw_text_layout"
+        app:layout_constraintEnd_toEndOf="@id/pw_text_layout"
+        app:layout_constraintTop_toBottomOf="@id/pw_text_layout" />
+
+    <TextView
+        android:id="@+id/login_find_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_find_pw"
+        android:layout_marginTop="22dp"
+        android:textColor="@color/myPageBlue"
+        app:layout_constraintStart_toStartOf="@id/login_login_btn"
+        app:layout_constraintEnd_toEndOf="@id/login_login_btn"
+        app:layout_constraintTop_toBottomOf="@id/login_login_btn"/>
+
+    <Button
+        android:id="@+id/login_register_btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/mainColor"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/btn_login_register"
+        android:text="@string/login_register"
+        app:layout_constraintStart_toStartOf="@id/login_login_btn"
+        app:layout_constraintEnd_toEndOf="@id/login_login_btn"
+        app:layout_constraintTop_toBottomOf="@id/login_find_pw" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/mypage_add_img"
+        app:layout_constraintTop_toBottomOf="@id/login_register_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
