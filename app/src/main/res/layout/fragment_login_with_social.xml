@@ -6,20 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/social_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:padding="20dp"
+        android:background="#F7F7F7"
         android:textColor="#9E9E9E"
-        android:background="#F2F2F2"
-        android:backgroundTint="@android:color/transparent"
         android:text="간편 로그인을 위해서는 야놀자 회원가입 후,\n MY 야놀자 > 설정에서 계정연동이 필요합니다"/>
 
     <LinearLayout

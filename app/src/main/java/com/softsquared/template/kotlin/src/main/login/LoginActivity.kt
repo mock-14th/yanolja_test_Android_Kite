@@ -59,5 +59,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
             }
         })
 
+        // 뒤로가기 버튼
+        binding.loginIbtnBack.setOnClickListener {
+            finish()
+        }
+
     }
 }

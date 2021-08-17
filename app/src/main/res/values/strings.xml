@@ -79,6 +79,25 @@
     <string name="setting_personal_info">개인정보 권한설정</string>
     <string name="setting_license">오픈소스 라이선스</string>
 
-
+    <!--회원가입-->
+    <string name="email">이메일</string>
+    <string name="pw">비밀번호</string>
+    <string name="pwConfirm">비밀번호 확인</string>
+    <string name="pwInfo">영문+숫자+특수문자 8~20자리</string>
+    <string name="confirm">확인</string>
+    <string name="register_one">회원가입 (1/2)</string>
+    <string name="register_two">회원가입 (2/2)</string>
+    <string name="next">다음</string>
+    <string name="agreeTitle">약관 동의</string>
+    <string name="agreeAll">전체 동의</string>
+    <string name="agreeAllIncludeChoice">(선택 포함)</string>
+    <string name="agree_condition_two"><u>위치 정보 이용 약관 동의</u></string>
+    <string name="agree_condition_three"><u>개인정보 수집 및 이용 동의</u></string>
+    <string name="register_done">회원가입 완료</string>
+    <string name="certify_num_again">인증번호 재전송(남은 횟수 3회)</string>
+    <string name="certify_six_num">인증번호 6자리</string>
+    <string name="pw_helper">영문+숫자+특수문자 8~20자리</string>
+    <string name="pw_helper_error">공백을 제외한 영문+숫자+특수문자 8~20자 조합으로 설정해주세요</string>
+    <string name="pw_confirm_helper_error">동일한 비밀번호를 입력해주세요</string>
 
 </resources>

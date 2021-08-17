@@ -26,4 +26,7 @@
     <color name="naverColor">#21C708</color>
     <color name="kakaoColor">#FEE404</color>
 
+    <!-- 로그인 버튼 -->
+    <color name="LoginBtnTxt">#88E1E0E0</color>
+
 </resources>

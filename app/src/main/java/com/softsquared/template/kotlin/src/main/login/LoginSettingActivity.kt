@@ -10,5 +10,10 @@ import com.softsquared.template.kotlin.databinding.ActivityMainBinding
 class LoginSettingActivity : BaseActivity<ActivityLoginSettingBinding>(ActivityLoginSettingBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 뒤로가기 버튼
+        binding.settingLoginIbtnBack.setOnClickListener {
+            finish()
+        }
     }
 }
