@@ -3,25 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/AppBottomSheetDialogTheme"
     android:layout_width="match_parent"
-    android:layout_height="450dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/dialog_btm_agree"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_addCate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/agree_closeBtn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="@android:color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_btn_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,12 +34,11 @@
             android:id="@+id/agree_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             android:text="@string/agreeTitle"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/agree_closeBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,18 +47,23 @@
             android:id="@+id/agree_relativeLayout"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/bg_social_login_select"
+            android:paddingStart="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/agree_closeBtn"
             app:layout_constraintTop_toBottomOf="@id/agree_tv">
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/agree_all_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true" />
+
             <TextView
                 android:id="@+id/agree_all_tv"
                 android:layout_width="wrap_content"
@@ -63,23 +71,25 @@
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/agree_all_check"
                 android:text="@string/agreeAll"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/agree_all_select_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text = "@string/agreeAllIncludeChoice"
-                android:layout_toEndOf="@id/agree_all_tv"/>
+                android:layout_marginTop="18dp"
+                android:layout_toEndOf="@id/agree_all_tv"
+                android:text="@string/agreeAllIncludeChoice" />
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/agree_ll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/agree_nextBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/agree_closeBtn"
             app:layout_constraintTop_toBottomOf="@id/agree_relativeLayout">
@@ -89,17 +99,19 @@
                 android:layout_height="50dp"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageButton
                     android:id="@+id/agree_check_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_agree_check" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/agree_check_iv"
                     android:text="만 14세 이상 이용,서비스 이용약관,개인정보\n수집 및 이용동의" />
             </RelativeLayout>
@@ -109,17 +121,19 @@
                 android:layout_height="50dp"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageButton
                     android:id="@+id/agree_check_iv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_agree_check" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/agree_check_iv2"
                     android:text="@string/agree_condition_two" />
             </RelativeLayout>
@@ -129,17 +143,19 @@
                 android:layout_height="50dp"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageButton
                     android:id="@+id/agree_check_iv3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_agree_check" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/agree_check_iv3"
                     android:text="@string/agree_condition_three" />
             </RelativeLayout>
@@ -149,37 +165,39 @@
                 android:layout_height="50dp"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageButton
                     android:id="@+id/agree_check_iv4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_agree_check" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/agree_check_iv4"
                     android:text="장기 미접속 시에도 계정 유지" />
             </RelativeLayout>
         </LinearLayout>
 
 
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/agree_nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/btn_login_login"
             android:text="다음"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/agree_ll"
             app:layout_constraintEnd_toEndOf="@+id/agree_relativeLayout"
-            app:layout_constraintStart_toStartOf="@+id/agree_relativeLayout" />
+            app:layout_constraintStart_toStartOf="@+id/agree_relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/agree_ll" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

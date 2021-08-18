@@ -2,9 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:state_pressed="false">
         <shape >
-            <solid android:color="#DCD4D4"/>
+            <solid android:color="@color/white"/>
             <stroke android:width="2dp"
-                android:color="#BBBBBB"/>
+                android:color="@color/myPageBlue"/>
             <corners android:bottomLeftRadius="5dp"
                 android:bottomRightRadius="5dp"
                 android:topLeftRadius="5dp"

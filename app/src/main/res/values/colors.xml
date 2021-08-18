@@ -27,6 +27,10 @@
     <color name="kakaoColor">#FEE404</color>
 
     <!-- 로그인 버튼 -->
-    <color name="LoginBtnTxt">#88E1E0E0</color>
+    <color name="LoginBtnTxt">#BBBBBB</color>
+    <color name="dialogGreen">#397F63</color>
+
+    <!-- 약관 동의-->
+    <color name="agree">#FBF1F1</color>
 
 </resources>

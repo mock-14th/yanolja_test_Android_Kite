@@ -1,4 +1,4 @@
-package com.softsquared.template.kotlin.src.main.login.register
+package com.softsquared.template.kotlin.src.main.register
 
 import android.app.Dialog
 import android.content.Context

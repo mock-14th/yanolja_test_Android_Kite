@@ -1,16 +1,15 @@
-package com.softsquared.template.kotlin.src.main.login.register
+package com.softsquared.template.kotlin.src.main.register
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.text.TextWatcher
-import android.widget.Toast
+import androidx.fragment.app.DialogFragment.STYLE_NORMAL
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseActivity
-import com.softsquared.template.kotlin.databinding.ActivityMainBinding
 import com.softsquared.template.kotlin.databinding.ActivityRegister2Binding
+import com.softsquared.template.kotlin.src.main.register.dialog.FragmentAgreeBtm
 
 class RegisterActivity2 : BaseActivity<ActivityRegister2Binding>(ActivityRegister2Binding::inflate)  {
 
@@ -27,28 +26,23 @@ class RegisterActivity2 : BaseActivity<ActivityRegister2Binding>(ActivityRegiste
         }
 
 
-        // 비밀번호 에러 감지 ???? check again
-        binding.pwInputET.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(binding.pwInputET.text?.length!! in 4..8){ // 8자리 이하로 입력
-                    binding.pwTextLayout.error = getString(R.string.pw_helper_error) //에러 메세지
-                }
-                else{
-                    binding.pwTextLayout.error = null
-                }
-            }
-            override fun afterTextChanged(s: Editable?) { // 조건 미충족
-
-            }
-        })
-
         // 비밀번호 일치 여부 확인
         binding.pwConfirmInputET.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // 비밀번호 helperText 초기화
+                if(binding.pwConfirmInputET.text?.length!! >= 1){
+                    binding.pwTextLayout.helperText = ""
+                }
+
+                // 비밀번호 입력란 자릿수 오류
+                if(binding.pwInputET.text?.length!! < 8){
+                    binding.pwTextLayout.error = getString(R.string.pw_helper_error) //에러 메세지
+                }else{
+                    binding.pwTextLayout.error = null
+                }
+
                 if(binding.pwConfirmInputET.text.toString() == binding.pwInputET.text.toString()){ // 일치할 때
                     binding.pwConfirmTextLayout.error = null // 에러 메세지 비활성화
                     binding.registerConfirmBtn.isClickable = true // 버튼 활성화
@@ -69,7 +63,9 @@ class RegisterActivity2 : BaseActivity<ActivityRegister2Binding>(ActivityRegiste
         // 정보 동의 팝업 창
         binding.registerConfirmBtn.setOnClickListener {
             val bottomSheet = FragmentAgreeBtm()
+            bottomSheet.setStyle(STYLE_NORMAL,R.style.AppBottomSheetDialogTheme)
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
     }
+
 }

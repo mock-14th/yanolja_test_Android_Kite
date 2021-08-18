@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.login.register.RegisterActivity3">
+    tools:context=".src.main.register.RegisterActivity3">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/register_tb_layout"
@@ -118,7 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:background="@color/LoginBtnTxt"
+        android:background="#FBF1F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phone_certification_btn">

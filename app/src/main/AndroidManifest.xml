@@ -15,22 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.login.register.RegisterLastActivity"></activity>
-        <activity android:name=".src.main.login.register.RegisterActivity3" />
-        <activity android:name=".src.main.login.register.RegisterActivity2" />
-        <activity android:name=".src.main.login.register.RegisterActivity">
+        <activity android:name=".src.main.register.RegisterLastActivity">
+        </activity>
+        <activity android:name=".src.main.register.RegisterActivity3" >
+        </activity>
+        <activity android:name=".src.main.register.RegisterActivity2" />
+        <activity android:name=".src.main.register.RegisterActivity">
+        </activity>
+        <activity android:name=".src.main.login.LoginSettingActivity" />
+        <activity android:name=".src.main.login.LoginActivity">
+        </activity>
+        <activity
+            android:name=".src.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.login.LoginSettingActivity" />
-        <activity android:name=".src.main.login.LoginActivity" />
-        <activity
-            android:name=".src.splash.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.MainActivity"
             android:screenOrientation="portrait"

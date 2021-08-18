@@ -44,6 +44,13 @@
 
     <style name="MyHintStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/secondColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="MyErrorStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/mainColor</item>
+        <item name="android:textSize">13sp</item>
     </style>
 
     <!-- 정보동의 팝업 bottom sheet 커스튬 -->

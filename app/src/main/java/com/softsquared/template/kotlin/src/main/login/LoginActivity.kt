@@ -9,7 +9,6 @@ import com.google.android.material.tabs.TabLayout
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseActivity
 import com.softsquared.template.kotlin.databinding.ActivityLoginBinding
-import com.softsquared.template.kotlin.databinding.ActivityMainBinding
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 

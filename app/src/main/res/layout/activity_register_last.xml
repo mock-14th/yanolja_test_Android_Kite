@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.login.register.RegisterActivity3">
+    tools:context=".src.main.register.RegisterActivity3">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/register_tb_layout"
@@ -98,6 +98,7 @@
             android:hint="휴대폰 번호"
             android:paddingStart="0dp"
             android:textSize="18sp"
+            android:focusable="false"
             android:theme="@style/TextInputLayoutStyle" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,9 +108,9 @@
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_btn_next"
-        android:text="인증번호 전송"
-        android:textColor="@color/LoginBtnTxt"
+        android:background="@drawable/bg_social_login_select"
+        android:text="@string/certify_num_again"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/phone_text_layout"
         app:layout_constraintStart_toStartOf="@id/phone_text_layout"
         app:layout_constraintTop_toBottomOf="@id/phone_text_layout" />
@@ -128,7 +129,6 @@
         app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidth="1dp"
-        app:endIconMode="clear_text"
         app:hintTextAppearance="@style/MyHintStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +142,7 @@
             android:background="@null"
             android:backgroundTint="@null"
             android:gravity="bottom"
+            android:inputType="textPassword"
             android:hint="@string/certify_six_num"
             android:paddingStart="0dp"
             android:textSize="18sp"
@@ -170,7 +171,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:background="@color/LoginBtnTxt"
+        android:background="#FBF1F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phone_six_num_text_layout">

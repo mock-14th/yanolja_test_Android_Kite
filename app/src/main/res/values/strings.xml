@@ -35,6 +35,7 @@
     <string name="my_page_tv_coupon">쿠폰</string>
     <string name="my_page_tv_my_review">나의 후기</string>
     <string name="my_page_tv_like">찜</string>
+    <string name="my_page_my_info_setting">내정보 관리</string>
     <!--예약 내역-->
     <string name="my_page_tv_book_list_logout">비회원 예약 내역</string>
     <string name="my_page_tv_book_list_login">예약 내역</string>
@@ -72,6 +73,7 @@
     <string name="social_phone">휴대폰 번호로 로그인</string>
     <string name="social_kakao">카카오 로그인</string>
     <string name="social_naver">네이버 로그인</string>
+    <string name="logout">로그아웃</string>
 
     <!-- 설정 -->
     <string name="setting_app_lock">암호잠금</string>
@@ -99,5 +101,6 @@
     <string name="pw_helper">영문+숫자+특수문자 8~20자리</string>
     <string name="pw_helper_error">공백을 제외한 영문+숫자+특수문자 8~20자 조합으로 설정해주세요</string>
     <string name="pw_confirm_helper_error">동일한 비밀번호를 입력해주세요</string>
+    <string name="phone_num_send">인증번호가 발송되었습니다.</string>
 
 </resources>

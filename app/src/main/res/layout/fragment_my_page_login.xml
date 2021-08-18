@@ -18,77 +18,105 @@
         app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
         android:layout_height="wrap_content">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/myPage_tb_layout"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/myPage_tb_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:elevation="0dp">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/myPage_cl"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:elevation="0dp">
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="72dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/myPage_cl"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:expandedTitleMarginEnd="64dp"
-                    app:expandedTitleMarginStart="72dp"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/myPage_topbar_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/apple_sd_gothic_neo"
+                    android:text="@string/my_page_tv_topbar"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/myPage_frame_layout_1"
+                    style="?attr/actionButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:clipToPadding="false"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toStartOf="@id/myPage_frame_layout_2"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/myPage_topbar_tv"
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:fontFamily="@font/apple_sd_gothic_neo"
-                        android:text="@string/my_page_tv_topbar"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mypage_topbar_alarm" />
 
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/myPage_frame_layout_1"
-                        style="?attr/actionButtonStyle"
+                    <TextView
+                        android:id="@+id/myPage_tv_alarm_badge"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right|end|top"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="-5dp"
+                        android:layout_marginRight="-5dp"
+                        android:background="@drawable/mypage_badge_bg"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="N"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp" />
+                </FrameLayout>
+
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/myPage_frame_layout_2"
+                    style="?attr/actionButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:clipToPadding="false"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:clipToPadding="false"
-                        android:focusable="true"
-                        app:layout_constraintEnd_toStartOf="@id/myPage_frame_layout_2"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mypage_topbar_shop" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_mypage_topbar_alarm" />
-
-                    </FrameLayout>
-
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/myPage_frame_layout_2"
-                        style="?attr/actionButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:clipToPadding="false"
-                        android:focusable="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_mypage_topbar_shop" />
-
-                    </FrameLayout>
+                    <TextView
+                        android:id="@+id/myPage_tv_shop_badge"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right|end|top"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="-5dp"
+                        android:layout_marginRight="-5dp"
+                        android:background="@drawable/mypage_badge_bg"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="0"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp" />
+                </FrameLayout>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -120,7 +148,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <!-- 첫 번째 칸(로그인x) -->
+                    <!-- 첫 번째 칸(로그인o) -->
                     <RelativeLayout
                         android:id="@+id/cv_col_one"
                         android:layout_width="match_parent"
@@ -128,45 +156,65 @@
                         android:layout_weight="1.5"
                         android:background="@drawable/effect_btn_click_ripple">
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/myPage_tv_login_info"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/myPage_iv_login_profile"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/my_page_tv_login_info" />
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/login_profile_img" />
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/myPage_tv_lets_login"
+                            android:id="@+id/myPage_tv_nickname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/myPage_tv_login_info"
+                            tools:text="닉네임"
                             android:layout_marginStart="15dp"
-                            android:layout_marginBottom="15dp"
-                            android:drawableEnd="@drawable/ic_mypage_right_arrow"
-                            android:text="@string/my_page_tv_lets_login"
-                            android:textColor="@color/myPageBlue"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="15dp"
+                            android:textColor="@color/black"
+                            android:layout_toEndOf="@id/myPage_iv_login_profile"
+                            android:textSize="20sp"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="15dp"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp"
+                            android:layout_below="@id/myPage_tv_nickname"
+                            android:layout_toEndOf="@id/myPage_iv_login_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/myPage_tv_setting_myinfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_page_my_info_setting"/>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_mypage_arrow_right_default"/>
+
+                        </LinearLayout>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/myPage_btn_my_profit"
                             android:layout_width="75dp"
                             android:layout_height="32dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentBottom="true"
                             android:layout_marginStart="100dp"
                             android:layout_marginTop="25dp"
                             android:layout_marginEnd="15dp"
                             android:layout_marginBottom="24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_centerHorizontal="true"
                             android:background="@drawable/effect_btn_click"
-                            android:padding="5dp"
                             android:text="@string/my_page_btn_my_profit"
                             android:textColor="@color/myPageBlue"
                             android:textSize="15sp" />

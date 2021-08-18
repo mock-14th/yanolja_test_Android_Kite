@@ -17,6 +17,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:padding="20dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:background="#F7F7F7"
         android:textColor="#9E9E9E"
         android:text="간편 로그인을 위해서는 야놀자 회원가입 후,\n MY 야놀자 > 설정에서 계정연동이 필요합니다"/>
