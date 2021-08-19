@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reco_cv_price"
+        android:layout_width="240dp"
+        android:layout_height="310dp"
+        android:layout_marginStart="10dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/special_bg_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/special_one">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/special_circlce_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/reco_special_img_one"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/special_tv_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="소노 호텔\u0026리조트"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@id/special_circlce_iv"
+                app:layout_constraintStart_toStartOf="@id/special_circlce_iv"
+                app:layout_constraintTop_toBottomOf="@id/special_circlce_iv" />
+
+
+            <TextView
+                android:id="@+id/special_tv_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="선착순 쿠폰 특가"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/special_tv_one"
+                app:layout_constraintStart_toStartOf="@id/special_tv_one"
+                app:layout_constraintTop_toBottomOf="@id/special_tv_one" />
+
+            <TextView
+                android:id="@+id/special_tv_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="5만원대"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/special_tv_two"
+                app:layout_constraintStart_toStartOf="@id/special_tv_two"
+                app:layout_constraintTop_toBottomOf="@id/special_tv_two" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/price_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@color/sale_price">
+
+                <TextView
+                    android:id="@+id/text_percent"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

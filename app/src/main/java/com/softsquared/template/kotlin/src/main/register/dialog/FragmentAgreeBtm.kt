@@ -11,10 +11,10 @@ import android.widget.ImageButton
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.softsquared.template.kotlin.R
-import com.softsquared.template.kotlin.src.main.register.RegisterActivity2
-import com.softsquared.template.kotlin.src.main.register.RegisterActivity3
+import com.softsquared.template.kotlin.src.main.register.ui.RegisterActivity2
+import com.softsquared.template.kotlin.src.main.register.ui.RegisterActivity3
 
-class FragmentAgreeBtm : BottomSheetDialogFragment() {
+class FragmentAgreeBtm(val email:String, val pw:String) : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,8 +52,15 @@ class FragmentAgreeBtm : BottomSheetDialogFragment() {
 
         // 다음 액티비티로 이동
         view.findViewById<Button>(R.id.agree_nextBtn).setOnClickListener {
+
             val nextIntent = Intent(context as RegisterActivity2, RegisterActivity3::class.java)
+
+            nextIntent.putExtra("email",email)
+            nextIntent.putExtra("pw",pw)
+
             startActivity(nextIntent)
+
+
         }
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.login.LoginSettingActivity">
+    tools:context=".src.main.login.ui.LoginSettingActivity">
 
     <!-- 상단 바 -->
 
@@ -146,6 +146,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/setting_logout_area"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:background="@drawable/stroke_mypage_bottom"

@@ -8,7 +8,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="mainColor">#EB497A</color>
+    <color name="subColor">#FFECF2</color>
     <color name="secondColor">#BBBBBB</color>
+    <color name="fragBgColor">#F2F2F2</color>
 
     <!--바텀 네비게이션-->
     <color name="navi_default">#BBBBBB</color>
@@ -32,5 +34,12 @@
 
     <!-- 약관 동의-->
     <color name="agree">#FBF1F1</color>
+
+    <!-- 오늘의 특가 -->
+    <color name="special_one">#EAFEDB</color>
+    <color name="special_two">#D2F3F8</color>
+    <color name="special_three">#F4D7DC</color>
+    <color name="sale_price">#EC2453</color>
+
 
 </resources>

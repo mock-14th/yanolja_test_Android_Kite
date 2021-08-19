@@ -14,10 +14,7 @@
     <string name="main_btm_nav_my_page_title">MY 야놀자</string>
 
     <!-- Home -->
-    <string name="home_btn_try_get_http_method">GET API 보내기</string>
-    <string name="home_btn_try_post_http_method">POST API 보내기</string>
-    <string name="home_et_id">아이디를 입력하세요.</string>
-    <string name="home_et_pw">비밀번호를 입력하세요.</string>
+    <string name="home_search_tv">어디로 놀러갈까요?</string>
 
     <!-- MyPage -->
     <string name="my_page_tv_counter">%1d 번 눌렀습니다.</string>
@@ -31,6 +28,7 @@
     <string name="my_page_btn_my_profit">MY 혜택</string>
     <string name="my_page_tv_point">포인트</string>
     <string name="my_page_tv_coin">야놀자 코인</string>
+    <string name="my_page_coupon_disappear">소멸예정 쿠폰이 있어요!</string>
     <string name="my_page_tv_after_login">계정연동 후 사용하세요</string>
     <string name="my_page_tv_coupon">쿠폰</string>
     <string name="my_page_tv_my_review">나의 후기</string>
@@ -87,6 +85,7 @@
     <string name="pwConfirm">비밀번호 확인</string>
     <string name="pwInfo">영문+숫자+특수문자 8~20자리</string>
     <string name="confirm">확인</string>
+    <string name="cancel">취소</string>
     <string name="register_one">회원가입 (1/2)</string>
     <string name="register_two">회원가입 (2/2)</string>
     <string name="next">다음</string>
@@ -102,5 +101,6 @@
     <string name="pw_helper_error">공백을 제외한 영문+숫자+특수문자 8~20자 조합으로 설정해주세요</string>
     <string name="pw_confirm_helper_error">동일한 비밀번호를 입력해주세요</string>
     <string name="phone_num_send">인증번호가 발송되었습니다.</string>
+    <string name="logoutAlert">로그아웃 하시겠습니까?</string>
 
 </resources>

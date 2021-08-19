@@ -1,6 +1,5 @@
 package com.softsquared.template.kotlin.src.main
 
-import android.graphics.Region
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.softsquared.template.kotlin.R
@@ -11,8 +10,8 @@ import com.softsquared.template.kotlin.databinding.ActivityMainBinding
 import com.softsquared.template.kotlin.src.main.home.HomeFragment
 import com.softsquared.template.kotlin.src.main.like.LikeFragment
 import com.softsquared.template.kotlin.src.main.myNear.MyNearFragment
-import com.softsquared.template.kotlin.src.main.myPage.MyPageFragment
-import com.softsquared.template.kotlin.src.main.myPage.MyPageLoginFragment
+import com.softsquared.template.kotlin.src.main.myPage.ui.MyPageFragment
+import com.softsquared.template.kotlin.src.main.myPage.ui.MyPageLoginFragment
 import com.softsquared.template.kotlin.src.main.region.RegionFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -23,10 +22,25 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         // 로그인 상태 불러오기
         loginState = sSharedPreferences.getInt("saveLogin", 0)
 
-        // 로그인 화면한 직후의 화면 => My야놀자
+        // 로그인 or 회원가입 화면에서 넘어올 때 => MY 야놀자
+        if(intent.hasExtra("afterLoginTask")){
 
-        // 앱 실행 직후의 화면 => 홈화면
-        supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+            // 바텀 네비 focus 화면 설정
+            binding.mainBtmNav.selectedItemId = R.id.menu_main_btm_nav_my_page
+
+            val loginFlag = intent.getBooleanExtra("afterLoginTask",false)
+
+            if(loginFlag == false) { // 로그아웃 MY 야놀자
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, MyPageFragment())
+                    .commitAllowingStateLoss()
+            }else{ // 로그인 MY 야놀자
+                supportFragmentManager.beginTransaction().replace(R.id.main_frm, MyPageLoginFragment())
+                    .commitAllowingStateLoss()
+            }
+        }else{
+            // 앱 실행 직후의 화면 => 홈화면
+            supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+        }
 
         binding.mainBtmNav.setOnNavigationItemSelectedListener(
             BottomNavigationView.OnNavigationItemSelectedListener { item ->

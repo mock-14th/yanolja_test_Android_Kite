@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white"
-    tools:context=".src.main.myPage.MyPageFragment">
+    tools:context=".src.main.myPage.ui.MyPageFragment">
 
     <!-- 상단 바 -->
     <com.google.android.material.appbar.AppBarLayout

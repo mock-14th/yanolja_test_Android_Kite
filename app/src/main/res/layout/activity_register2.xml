@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.register.RegisterActivity2">
+    tools:context=".src.main.register.ui.RegisterActivity2">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/register_tb_layout"

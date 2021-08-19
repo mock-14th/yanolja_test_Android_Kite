@@ -15,15 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.register.RegisterLastActivity">
+        <activity android:name=".src.main.register.ui.RegisterLastActivity">
         </activity>
-        <activity android:name=".src.main.register.RegisterActivity3" >
+        <activity android:name=".src.main.register.ui.RegisterActivity3" >
         </activity>
-        <activity android:name=".src.main.register.RegisterActivity2" />
-        <activity android:name=".src.main.register.RegisterActivity">
+        <activity android:name=".src.main.register.ui.RegisterActivity2" />
+        <activity android:name=".src.main.register.ui.RegisterActivity">
         </activity>
-        <activity android:name=".src.main.login.LoginSettingActivity" />
-        <activity android:name=".src.main.login.LoginActivity">
+        <activity android:name=".src.main.login.ui.LoginSettingActivity" />
+        <activity android:name=".src.main.login.ui.LoginActivity">
         </activity>
         <activity
             android:name=".src.splash.SplashActivity"

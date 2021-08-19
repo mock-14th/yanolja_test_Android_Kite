@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white"
-    tools:context=".src.main.myPage.MyPageFragment">
+    tools:context=".src.main.myPage.ui.MyPageFragment">
 
     <!-- 상단 바 -->
     <com.google.android.material.appbar.AppBarLayout
@@ -249,6 +249,19 @@
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 
+                        <TextView
+                            android:id="@+id/point_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/mypage_iv_point_arrow"
+                            tools:text="0"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="3dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
+
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_point_arrow"
                             android:layout_width="16dp"
@@ -340,6 +353,31 @@
                             android:text="@string/my_page_tv_coupon"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mypage_tv_coupon_disappear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="19dp"
+                            android:layout_marginStart="2dp"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:layout_toEndOf="@id/mypage_tv_coupon"
+                            android:text="@string/my_page_coupon_disappear"
+                            android:textColor="@color/mainColor"/>
+
+                        <TextView
+                            android:id="@+id/coupon_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/mypage_iv_coupon_arrow"
+                            tools:text="0"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="3dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/mypage_iv_coupon_arrow"

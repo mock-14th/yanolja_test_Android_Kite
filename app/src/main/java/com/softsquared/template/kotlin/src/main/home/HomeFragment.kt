@@ -3,56 +3,56 @@ package com.softsquared.template.kotlin.src.main.home
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseFragment
 import com.softsquared.template.kotlin.databinding.FragmentHomeBinding
-import com.softsquared.template.kotlin.src.main.home.models.PostSignUpRequest
-import com.softsquared.template.kotlin.src.main.home.models.SignUpResponse
-import com.softsquared.template.kotlin.src.main.home.models.UserResponse
+import com.softsquared.template.kotlin.src.main.home.adapter.HomePagerAdapter
+import com.softsquared.template.kotlin.src.main.home.ui.EtcFragment
+import com.softsquared.template.kotlin.src.main.home.ui.LocalRoomFragment
+import com.softsquared.template.kotlin.src.main.home.ui.RecommendFragment
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
-        HomeFragmentView {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home){
+
+    private lateinit var myFragment: View
+    private lateinit var viewPagers: ViewPager
+    private lateinit var tabLayouts: TabLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.homeButtonTryGetJwt.setOnClickListener {
-            showLoadingDialog(context!!)
-            HomeService(this).tryGetUsers()
-        }
-
-        binding.homeBtnTryPostHttpMethod.setOnClickListener {
-            val email = binding.homeEtId.text.toString()
-            val password = binding.homeEtPw.text.toString()
-            val postRequest = PostSignUpRequest(email = email, password = password,
-                    confirmPassword = password, nickname = "test", phoneNumber = "010-0000-0000")
-            showLoadingDialog(context!!)
-            HomeService(this).tryPostSignUp(postRequest)
-        }
     }
 
-    override fun onGetUserSuccess(response: UserResponse) {
-        dismissLoadingDialog()
-        for (User in response.result) {
-            Log.d("HomeFragment", User.toString())
-        }
-        binding.homeButtonTryGetJwt.text = response.message
-        showCustomToast("Get JWT 성공")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setUpViewPager()
+        binding.homeTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+            }
+        })
     }
 
-    override fun onGetUserFailure(message: String) {
-        dismissLoadingDialog()
-        showCustomToast("오류 : $message")
+    private fun setUpViewPager() {
+        viewPagers = binding.viewpager
+        tabLayouts = binding.homeTabLayout
+
+        var adapter = HomePagerAdapter(requireFragmentManager())
+        adapter.addFragment(RecommendFragment(), "추천")
+        adapter.addFragment(LocalRoomFragment(), "국내숙소")
+        adapter.addFragment(EtcFragment(),"즐길거리")
+        adapter.addFragment(EtcFragment(),"교통/항공")
+        adapter.addFragment(EtcFragment(),"해외여행")
+
+        viewPagers!!.adapter = adapter
+        tabLayouts!!.setupWithViewPager(viewPagers)
     }
 
-    override fun onPostSignUpSuccess(response: SignUpResponse) {
-        dismissLoadingDialog()
-        binding.homeBtnTryPostHttpMethod.text = response.message
-        response.message?.let { showCustomToast(it) }
-    }
-
-    override fun onPostSignUpFailure(message: String) {
-        dismissLoadingDialog()
-        showCustomToast("오류 : $message")
-    }
 }

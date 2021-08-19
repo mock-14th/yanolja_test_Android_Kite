@@ -1,37 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".src.main.home.HomeFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/home_button_try_get_jwt"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/home_btn_try_get_http_method" />
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true">
 
-    <EditText
-        android:id="@+id/home_et_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/home_et_id" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
-    <EditText
-        android:id="@+id/home_et_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/home_et_pw" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/home_btn_try_post_http_method"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="@string/home_btn_try_post_http_method" />
-</LinearLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/home_iv_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitStart"
+                    android:paddingTop="3dp"
+                    android:src="@drawable/home_logo_yanolza" />
+
+                <RelativeLayout
+                    android:id="@+id/home_rl_search"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/home_iv_logo"
+                    android:layout_toStartOf="@id/home_iv_basket"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_home_search">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/home_tv_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@string/home_search_tv"
+                        android:textColor="@color/secondColor"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_home_search" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/home_iv_basket"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_home_cart"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentEnd="true" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 스크롤 영역 -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/home_tab_layout"
+                style="@style/Widget.App.TabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke_mypage_bottom"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="3dp"/>
+
+          <androidx.viewpager.widget.ViewPager
+              android:id="@+id/viewpager"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+      </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/reco_iv_bg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="14dp"
+        android:padding="5dp"
+        android:src="@color/subColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 스토리 조회 상태 표시 -->
+    <FrameLayout
+        android:id="@+id/reco_frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/reco_iv_bg"
+        app:layout_constraintEnd_toEndOf="@id/reco_iv_bg"
+        app:layout_constraintStart_toStartOf="@id/reco_iv_bg"
+        app:layout_constraintTop_toTopOf="@id/reco_iv_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/reco_iv_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/home_reco_nh_bus" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/reco_tv_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/reco_frame_layout"
+        app:layout_constraintStart_toStartOf="@+id/reco_frame_layout"
+        app:layout_constraintTop_toBottomOf="@+id/reco_iv_bg"
+        tools:text="고속버스" />
+</androidx.constraintlayout.widget.ConstraintLayout>
