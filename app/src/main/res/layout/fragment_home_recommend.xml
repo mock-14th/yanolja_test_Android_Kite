@@ -47,7 +47,7 @@
         <LinearLayout
             android:id="@+id/grid_ll_one"
             android:background="@color/white"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/new_and_hot_ll"
             app:layout_constraintEnd_toEndOf="@id/new_and_hot_ll"
@@ -320,15 +320,16 @@
         </LinearLayout>
 
         <!-- 슬라이딩 애니메이션 구현 -->
-        <LinearLayout
+        <androidx.viewpager.widget.ViewPager
             android:orientation="vertical"
-            android:id="@+id/reco_ll_slide"
+            android:id="@+id/reco_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             app:layout_constraintStart_toStartOf="@id/grid_ll_two"
             app:layout_constraintEnd_toEndOf="@id/grid_ll_two"
             app:layout_constraintTop_toBottomOf="@id/grid_ll_two"
             android:background="@color/black"/>
+
 
         <!-- 오늘의 특가 -->
         <LinearLayout
@@ -337,9 +338,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:layout_constraintStart_toStartOf="@id/reco_ll_slide"
-            app:layout_constraintEnd_toEndOf="@id/reco_ll_slide"
-            app:layout_constraintTop_toBottomOf="@id/reco_ll_slide">
+            app:layout_constraintStart_toStartOf="@id/reco_viewpager"
+            app:layout_constraintEnd_toEndOf="@id/reco_viewpager"
+            app:layout_constraintTop_toBottomOf="@id/reco_viewpager">
 
             <TextView
                 android:textSize="19sp"
@@ -353,12 +354,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/reco_rv_price"
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                tools:listitem="@layout/item_reco_speical_price"
+                android:layout_height="290dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                tools:listitem="@layout/item_reco_speical_price" />
         </LinearLayout>
 
         <LinearLayout
@@ -367,7 +368,7 @@
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@id/reco_ll_specail_prize"
             app:layout_constraintTop_toBottomOf="@id/reco_ll_specail_prize"
             app:layout_constraintEnd_toEndOf="@id/reco_ll_specail_prize">
@@ -420,6 +421,7 @@
                         android:background="@drawable/bg_white_corner_color"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="4dp"
+                        android:padding="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/home_reco_jeju_cv"
                         app:layout_constraintEnd_toEndOf="@+id/home_reco_jeju_cv"
                         android:layout_width="25dp"
@@ -464,6 +466,7 @@
                         android:background="@drawable/bg_white_corner_color"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="4dp"
+                        android:padding="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/home_reco_gangwon_cv"
                         app:layout_constraintEnd_toEndOf="@+id/home_reco_gangwon_cv"
                         android:layout_width="25dp"
@@ -486,6 +489,7 @@
                         android:id="@+id/home_busan_jeju_cv"
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/home_reco_busan"
                         app:layout_constraintBottom_toTopOf="@id/home_reco_busan_tv"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -509,6 +513,7 @@
                         android:background="@drawable/bg_white_corner_color"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="4dp"
+                        android:padding="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/home_busan_jeju_cv"
                         app:layout_constraintEnd_toEndOf="@+id/home_busan_jeju_cv"
                         android:layout_width="25dp"
@@ -554,6 +559,7 @@
                         android:background="@drawable/bg_white_corner_color"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="4dp"
+                        android:padding="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/home_reco_geongbuk_cv"
                         app:layout_constraintEnd_toEndOf="@+id/home_reco_geongbuk_cv"
                         android:layout_width="25dp"
@@ -565,14 +571,485 @@
                             android:background="@color/myPageBlue"
                             android:src="@drawable/ic_reco_home"/>
                     </FrameLayout>
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </LinearLayout>
         </LinearLayout>
 
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_weekly_popular"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/ll_another_local"
+            app:layout_constraintTop_toBottomOf="@id/ll_another_local"
+            app:layout_constraintEnd_toEndOf="@id/ll_another_local">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/weekly_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="위클리 인기 Top"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/weekly_tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weekly_tv"
+                android:text="지난주 구매 기반 인기 많은 순"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/myPageBlue"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentEnd="true"
+                android:text="전체보기"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/weekly_popular_tab_layout"
+                style="@style/ChipTabLayout"
+                app:tabMode ="scrollable"
+                app:tabIndicator="@null"
+                android:layout_marginTop="5dp"
+                app:tabSelectedTextColor="@color/myPageBlue"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/weekly_popular_view_pager"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_magazine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="@id/ll_weekly_popular"
+            app:layout_constraintTop_toBottomOf="@id/ll_weekly_popular"
+            app:layout_constraintEnd_toEndOf="@id/ll_weekly_popular"
+            android:layout_marginTop="10dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_magazine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/reco_magazine_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="15dp"
+                    android:text="오늘의 인기 매거진" />
+
+                <TextView
+                    android:id="@+id/reco_magazie_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체보기"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/myPageBlue"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reco_magazine_rv"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                tools:listitem="@layout/item_reco_magazine"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"/>
+        </LinearLayout>
         
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:id="@+id/ll_looking_for"
+            app:layout_constraintStart_toStartOf="@id/ll_magazine"
+            app:layout_constraintTop_toBottomOf="@id/ll_magazine"
+            app:layout_constraintEnd_toEndOf="@id/ll_magazine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="찾고 계신 상품이 있나요?"/>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/look_for_iv"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_look_for_room"/>
+
+                <LinearLayout
+                    android:layout_toEndOf="@id/look_for_iv"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/look_top_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@id/look_for_iv"
+                    android:text="국내숙소" />
+
+                    <TextView
+                        android:id="@+id/look_bottom_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/look_top_tv"
+                        android:layout_toEndOf="@id/look_for_iv"
+                        android:text="호텔 / 프리미엄호텔 / 모텔 / 펜션 / 풀빌라 / 게스트하우스"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_mypage_arrow_right_default"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/look_for_iv2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_look_for_fun"/>
+
+                <LinearLayout
+                    android:layout_toEndOf="@id/look_for_iv2"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/look_top_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@id/look_for_iv2"
+                        android:text="즐길거리" />
+
+                    <TextView
+                        android:id="@+id/look_bottom_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/look_top_tv2"
+                        android:layout_toEndOf="@id/look_for_iv2"
+                        android:text="워터파크 / 수상레저 / 테마파크 / 모바일교환권 / 맛집 / 아이야놀자"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_mypage_arrow_right_default"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/look_for_iv3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_look_for_move"/>
+
+                <LinearLayout
+                    android:layout_toEndOf="@id/look_for_iv3"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/look_top_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@id/look_for_iv2"
+                        android:text="교통/항공" />
+
+                    <TextView
+                        android:id="@+id/look_bottom_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/look_top_tv3"
+                        android:layout_toEndOf="@id/look_for_iv3"
+                        android:text="KTX / 렌터카 / 고속버스 / 국내 항공권 / 해외 항공권"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_mypage_arrow_right_default"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/look_for_iv4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/img_look_for_aboard"/>
+
+                <LinearLayout
+                    android:layout_toEndOf="@id/look_for_iv4"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/look_top_tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@id/look_for_iv4"
+                        android:text="해외여행" />
+
+                    <TextView
+                        android:id="@+id/look_bottom_tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/look_top_tv4"
+                        android:layout_toEndOf="@id/look_for_iv4"
+                        android:text="해외숙소 / 해외항공권 / 해외 여행자보험"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_mypage_arrow_right_default"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        
+
+        <LinearLayout
+            android:id="@+id/ll_yanolza_law_info_tv"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/ll_looking_for"
+            app:layout_constraintTop_toBottomOf="@id/ll_looking_for"
+            app:layout_constraintEnd_toEndOf="@id/ll_looking_for"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/law_logo_iv"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/home_logo_yanolza_gray"/>
+
+                <ImageView
+                    android:id="@+id/law_arrow_iv"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="34dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_arrow_down_gray"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="33dp"
+                    android:textStyle="bold"
+                    android:layout_toStartOf="@id/law_arrow_iv"
+                    android:text="사업자정보"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_law_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_law_contents_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개인정보처리방침"/>
+
+                    <TextView
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="청소년보호정책"/>
+
+                    <TextView
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="서비스 이용약관"/>
+
+                    <TextView
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="위치 정보 이용약관"/>
+                </LinearLayout>
+
+                <TextView
+                    android:textSize="10sp"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/bg_law_info_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사업자 정보확인"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="10sp"
+                android:text="@string/yanolza_law_one"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/yanolza_law_two"/>
+
+            <TextView
+                android:textSize="10sp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/bg_law_info_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="콘텐츠산업 진흥법에 따른 표시"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+        </LinearLayout>
+
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

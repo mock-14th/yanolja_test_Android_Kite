@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/reco_cv_price"
-        android:layout_width="240dp"
-        android:layout_height="310dp"
+        android:layout_width="220dp"
+        android:layout_height="280dp"
         android:layout_marginStart="10dp"
         app:cardCornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/special_circlce_iv"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
@@ -78,8 +78,8 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@color/sale_price">
 
                 <TextView

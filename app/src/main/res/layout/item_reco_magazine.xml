@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/magazine_cardview"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/reco_magazine_iv"
+        android:background="@android:color/transparent"
+        android:src="@drawable/img_magazine_one"
+        android:scaleType="centerCrop"
+        android:layout_width="180dp"
+        android:layout_height="180dp"/>
+
+
+        <FrameLayout
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/chip_tv"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_white_chip_corner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="숙소"/>
+
+                <TextView
+                    android:id="@+id/magazine_info_tv"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/chip_tv"
+                    android:text="숲 속 언택트 힐링\n홍천 부티크 풀빌라"/>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

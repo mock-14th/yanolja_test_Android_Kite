@@ -85,5 +85,12 @@
         <item name="colorSurface">@color/black</item>
     </style>
 
+    <!-- chip 탭 레이아웃 커스튬 -->
+    <style name="ChipTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabBackground">@drawable/selector_tab</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
 
 </resources>

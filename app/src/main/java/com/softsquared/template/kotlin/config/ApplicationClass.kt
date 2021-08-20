@@ -1,7 +1,9 @@
 package com.softsquared.template.kotlin.config
 
 import android.app.Application
+import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Resources
 import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,6 +34,15 @@ class ApplicationClass : Application() {
 
         // 로그인 여부 체크
         var loginState:Int =  0
+
+        // 단위 변경 함수
+        fun dpToPx(dp: Int): Int {
+            return ((dp * Resources.getSystem().displayMetrics.density).toInt());
+        }
+
+        fun pxToDp(px: Int, context: Context): Int {
+            return ((px / Resources.getSystem().displayMetrics.density).toInt());
+        }
 
     }
 
