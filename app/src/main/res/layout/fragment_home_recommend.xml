@@ -916,7 +916,7 @@
 
                 <ImageView
                     android:layout_marginTop="15dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:id="@+id/law_logo_iv"
                     android:layout_width="100dp"
                     android:layout_height="35dp"
@@ -944,77 +944,77 @@
                 android:id="@+id/ll_law_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_marginStart="10dp"
-                    android:orientation="horizontal"
                     android:id="@+id/ll_law_contents_one"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:textSize="10sp"
-                        android:padding="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/bg_law_info_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="개인정보처리방침"/>
+                        android:background="@drawable/bg_law_info_btn"
+                        android:gravity="center_horizontal"
+                        android:padding="5dp"
+                        android:text="개인정보처리방침"
+                        android:textAlignment="center"
+                        android:textSize="10sp" />
 
                     <TextView
-                        android:textSize="10sp"
-                        android:padding="5dp"
-                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:gravity="center_horizontal"
                         android:background="@drawable/bg_law_info_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="청소년보호정책"/>
+                        android:gravity="center_horizontal"
+                        android:padding="5dp"
+                        android:text="청소년보호정책"
+                        android:textAlignment="center"
+                        android:textSize="10sp" />
 
                     <TextView
-                        android:textSize="10sp"
-                        android:padding="5dp"
-                        android:textAlignment="center"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/bg_law_info_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="서비스 이용약관"/>
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:gravity="center_horizontal"
+                        android:padding="5dp"
+                        android:text="서비스 이용약관"
+                        android:textAlignment="center"
+                        android:textSize="10sp" />
 
                     <TextView
-                        android:textSize="10sp"
-                        android:padding="5dp"
-                        android:textAlignment="center"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center_horizontal"
-                        android:background="@drawable/bg_law_info_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="위치 정보 이용약관"/>
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_law_info_btn"
+                        android:gravity="center_horizontal"
+                        android:padding="5dp"
+                        android:text="위치 정보 이용약관"
+                        android:textAlignment="center"
+                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <TextView
-                    android:textSize="10sp"
-                    android:padding="5dp"
-                    android:textAlignment="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_horizontal"
-                    android:background="@drawable/bg_law_info_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="사업자 정보확인"/>
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_law_info_btn"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="사업자 정보확인"
+                    android:textAlignment="center"
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="10dp"
                 android:textSize="10sp"
                 android:text="@string/yanolza_law_one"/>
@@ -1024,7 +1024,7 @@
                 android:textSize="10sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="10dp"
                 android:text="@string/yanolza_law_two"/>
 
@@ -1032,7 +1032,7 @@
                 android:textSize="10sp"
                 android:padding="5dp"
                 android:textAlignment="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:background="@drawable/bg_law_info_btn"

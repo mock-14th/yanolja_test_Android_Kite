@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recent_cardview"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/recent_iv"
+                android:background="@android:color/transparent"
+                android:src="@drawable/img_magazine_one"
+                android:scaleType="centerCrop"
+                android:layout_width="160dp"
+                android:layout_height="160dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/recent_room_tv"
+            android:text="여수 마린베이호텔"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/recent_cardview"
+            app:layout_constraintStart_toStartOf="@id/recent_cardview"
+            app:layout_constraintEnd_toEndOf="@id/recent_cardview"/>
+
+        <LinearLayout
+            android:id="@+id/ll_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/recent_room_tv"
+            app:layout_constraintTop_toBottomOf="@id/recent_room_tv"
+            app:layout_constraintEnd_toEndOf="@id/recent_room_tv">
+
+            <RatingBar
+                android:id="@+id/rating_bar"
+                style="@style/customRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:numStars="5"
+                android:rating="3.5"
+                android:layout_gravity="center"
+                android:stepSize="0.1" />
+
+            <TextView
+                android:id="@+id/rating_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="4.5"/>
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:id="@+id/recent_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="(866)"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/ll_rating"
+            app:layout_constraintTop_toBottomOf="@id/ll_rating"
+            android:text="1박 기준"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_standard"
+            app:layout_constraintStart_toStartOf="@id/ll_rating"
+            app:layout_constraintEnd_toEndOf="@id/ll_rating">
+
+            <TextView
+                android:id="@+id/tv_unit"
+                android:text="원"
+                android:layout_marginTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="10,000"
+                android:layout_toStartOf="@id/tv_unit"/>
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50%"
+                android:textColor="@color/mainColor"
+                android:textSize="14sp"
+                android:layout_toStartOf="@id/tv_money"/>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

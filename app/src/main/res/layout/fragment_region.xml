@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.region.RegionFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".src.main.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/region_appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true">
 
-</FrameLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/region_toolBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:contentInsetStart="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:textSize="24sp"
+                        android:textColor="@color/black"
+                        android:text="지역"
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageButton
+                        android:layout_centerVertical="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_home_search"
+                        android:scaleType="centerCrop"
+                        android:background="@android:color/transparent"
+                        android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/region_tablayout"
+                    app:tabIndicator="@null"
+                    android:background="@drawable/stroke_mypage_bottom"
+                    app:tabSelectedTextColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지역별" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="역주변" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지도 검색" />
+                </com.google.android.material.tabs.TabLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:background="@color/black"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/region_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

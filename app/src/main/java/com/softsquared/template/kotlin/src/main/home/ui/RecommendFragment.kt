@@ -41,6 +41,7 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
         true
     }
 
+
     // Weekly Tab
     private lateinit var myFragment: View
     private lateinit var viewPagers: ViewPager
@@ -70,11 +71,10 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
         binding.recoRvNH.adapter = nhAdapter
 
 
-
         ///////////////////////////////////// 광고 viewpager ///////////////////////////////////////////
-        //뷰페이저 넘기는 쓰레드
-        val thread=Thread(PagerRunnable())
-        thread.start()
+//        //뷰페이저 넘기는 쓰레드
+          val thread=Thread(PagerRunnable())
+          thread.start()
 
         // viewpager adapter 연결
         binding.recoViewpager.adapter = RecoViewPagerAdapter(requireContext())
@@ -157,7 +157,7 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
         viewPagers = binding.weeklyPopularViewPager
         tabLayouts = binding.weeklyPopularTabLayout
 
-        var adapter = RecoWeeklyViewPagerAdapter(requireFragmentManager()!!)
+        var adapter = RecoWeeklyViewPagerAdapter(childFragmentManager!!)
         adapter.addFragment(RecoWeeklyMobileFragment(), "모바일교환권")
         adapter.addFragment(RecoWeeklyPensionFragment(), "펜션")
         adapter.addFragment(RecoWeeklyHotelFragment(), "호텔")
@@ -175,4 +175,5 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
             tab.requestLayout()
         }
     }
+
 }

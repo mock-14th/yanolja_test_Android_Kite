@@ -92,5 +92,14 @@
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
 
+    <!-- rating bar 커스튬 -->
+    <style name="customRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
+        <item name="android:minHeight">15dp</item>
+        <item name="android:maxHeight">15dp</item>
+    </style>
+
+
+
 
 </resources>

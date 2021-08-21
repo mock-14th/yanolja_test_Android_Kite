@@ -111,4 +111,26 @@
         및 화면의 구성, UI를 포함하여 일체의 콘텐츠에 대한 무단 복제,배포,방송 또는 전송,스크래핑 등의 행위는
         저작권법 및 콘텐츠산업 진흥법 등 관련 법령에 의하여 엄격히 금지 됩니다.</string>
 
+    <!--국내숙소 -->
+    <string name="motel">모텔</string>
+    <string name="hotel">호텔</string>
+    <string name="premium_hotel">프리미엄호텔</string>
+    <string name="pension">펜션</string>
+    <string name="resort">리조트</string>
+    <string name="pool_vila">풀빌라</string>
+    <string name="camping">글램핑/캠핑</string>
+    <string name="hanok">게하/한옥</string>
+    <string name="hokangs">호캉스패키지</string>
+    <string name="earlybird">얼리버드특가</string>
+    <string name="brand">부티크브랜드</string>
+    <string name="self_check_in">셀프체크인</string>
+    <string name="motel_again">모텔의재발견</string>
+    <string name="poolroom">수영장숙소</string>
+    <string name="themepension">테마펜션</string>
+    <string name="gungbok">경상북도</string>
+    <string name="jejudo">제주도</string>
+    <string name="busan">부산</string>
+    <string name="gangwon">강원도</string>
+    <string name="see_more">더보기</string>
+
 </resources>

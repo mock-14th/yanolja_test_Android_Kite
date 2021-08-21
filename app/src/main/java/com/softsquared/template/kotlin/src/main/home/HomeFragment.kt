@@ -39,7 +39,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         viewPagers = binding.viewpager
         tabLayouts = binding.homeTabLayout
 
-        var adapter = HomePagerAdapter(requireFragmentManager())
+        var adapter = HomePagerAdapter(childFragmentManager)
         adapter.addFragment(RecommendFragment(), "추천")
         adapter.addFragment(LocalRoomFragment(), "국내숙소")
         adapter.addFragment(EtcFragment(),"즐길거리")
