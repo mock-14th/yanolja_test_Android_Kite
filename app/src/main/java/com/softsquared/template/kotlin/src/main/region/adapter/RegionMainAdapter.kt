@@ -1,3 +1,4 @@
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
@@ -5,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.databinding.ItemTabRegionMainBinding
 import com.softsquared.template.kotlin.src.main.region.data.RegionMainData
 
@@ -15,13 +18,14 @@ class RegionMainAdapter(var itemList:ArrayList<RegionMainData>, val fragment_s: 
     lateinit var fragment: Fragment
     lateinit var binding: ItemTabRegionMainBinding
 
-
+    var rowIndex = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RMItemHolder {
         val binding = ItemTabRegionMainBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         this.fragment = fragment_s
         return RMItemHolder(binding, context)
     }
+
 
     override fun onBindViewHolder(holder: RMItemHolder, position: Int) {
 
@@ -32,6 +36,15 @@ class RegionMainAdapter(var itemList:ArrayList<RegionMainData>, val fragment_s: 
 
         val myItemList = itemList[position]
         holder.setItemList(myItemList)
+
+        if(rowIndex == position) {
+            holder.binding.tabRegionMainTv.setTextColor(ContextCompat.getColor(context, R.color.black))
+            holder.binding.tabRegionMainTv.setBackgroundColor(Color.WHITE)
+        }
+        else {
+            holder.binding.tabRegionMainTv.setTextColor(ContextCompat.getColor(context, R.color.secondColor))
+            holder.binding.tabRegionMainTv.setBackgroundColor(ContextCompat.getColor(context, R.color.fragBgColor))
+        }
     }
 
     // 아이템 클릭 리스너
@@ -55,6 +68,8 @@ class RegionMainAdapter(var itemList:ArrayList<RegionMainData>, val fragment_s: 
             {
                 itemView.setOnClickListener {
                     listener?.onItemClick(itemView,itemList,pos)
+                    rowIndex = pos
+                    notifyDataSetChanged()
                 }
             }
         }

@@ -1,6 +1,9 @@
 package com.softsquared.template.kotlin.src.main.home.adapter
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -33,6 +36,9 @@ class MagazineHolder(val binding: ItemRecoMagazineBinding, var context: Context)
 
         // 이미지 설정
         binding.recoMagazineIv.setImageDrawable(itemList.itemImg)
+
+        // 이미지 밝기 조절
+        binding.recoMagazineIv.setColorFilter(Color.parseColor("#BDBDBD"),PorterDuff.Mode.MULTIPLY)
 
         // 텍스트 설정
         binding.magazineInfoTv.text = itemList.itemTxt

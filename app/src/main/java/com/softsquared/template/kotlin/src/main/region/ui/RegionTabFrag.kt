@@ -158,30 +158,30 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(FragmentTabRegionBi
                     else -> binding.regionLvSub.adapter = emptyAdapter
                 }
 
-                if(binding.regionLvSub.adapter == subAdapterGeong){
-
-                    if(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor == resources.getColor(R.color.secondColor)){
-                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
-                    }else{
-                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor)
-                    }
-
-
-                    binding.regionLvMain.getChildAt(0).setBackgroundColor(resources.getColor(R.color.fragBgColor))
-                    binding.regionLvMain.getChildAt(1).setBackgroundColor(resources.getColor(R.color.white))
-
-                }else if(binding.regionLvSub.adapter == subAdapterSeoul){
-
-                    if(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor == resources.getColor(R.color.secondColor)){
-                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
-                    }else{
-                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor)
-                    }
-
-                    //v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
-                    binding.regionLvMain.getChildAt(0).setBackgroundColor(resources.getColor(R.color.white))
-                    binding.regionLvMain.getChildAt(1).setBackgroundColor(resources.getColor(R.color.fragBgColor))
-                }
+//                if(binding.regionLvSub.adapter == subAdapterGeong){
+//
+////                    if(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor == resources.getColor(R.color.secondColor)){
+////                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
+////                    }else{
+////                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor)
+////                    }
+//
+//
+//                    binding.regionLvMain.getChildAt(0).setBackgroundColor(resources.getColor(R.color.fragBgColor))
+//                    binding.regionLvMain.getChildAt(1).setBackgroundColor(resources.getColor(R.color.white))
+//
+//                }else if(binding.regionLvSub.adapter == subAdapterSeoul){
+//
+////                    if(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor == resources.getColor(R.color.secondColor)){
+////                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
+////                    }else{
+////                        v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(v.findViewById<TextView>(R.id.tab_region_main_tv).currentTextColor)
+////                    }
+//
+//                    //v.findViewById<TextView>(R.id.tab_region_main_tv).setTextColor(resources.getColor(R.color.black))
+//                    binding.regionLvMain.getChildAt(0).setBackgroundColor(resources.getColor(R.color.white))
+//                    binding.regionLvMain.getChildAt(1).setBackgroundColor(resources.getColor(R.color.fragBgColor))
+//                }
 
 
 
