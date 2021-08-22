@@ -48,7 +48,7 @@ class RegionFragment :
 
         //화면을 켰을 때 기본으로 보여지는 fragment 설정
         fragment = RegionTabFrag()
-        fragmentTransaction = parentFragmentManager!!.beginTransaction()
+        fragmentTransaction = childFragmentManager!!.beginTransaction()
         fragmentTransaction!!.replace(R.id.region_frame_layout,fragment)
         fragmentTransaction!!.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
         fragmentTransaction!!.commit()
@@ -67,7 +67,7 @@ class RegionFragment :
                     // '지도 검색' 탭 화면으로 변경
                     2 -> fragment = SearchMapTabFrag()
                 }
-                val fm = parentFragmentManager
+                val fm = childFragmentManager
                 val ft = fm.beginTransaction()
                 ft.replace(R.id.region_frame_layout, fragment)
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)

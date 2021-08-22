@@ -1,9 +1,12 @@
 package com.softsquared.template.kotlin.src.splash
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
+import androidx.core.graphics.alpha
 import com.softsquared.template.kotlin.config.BaseActivity
 import com.softsquared.template.kotlin.databinding.ActivitySplashBinding
 import com.softsquared.template.kotlin.src.main.MainActivity
@@ -17,7 +20,5 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, 1500)
-
-        // 여기서 로그인 연결 확인..?
     }
 }

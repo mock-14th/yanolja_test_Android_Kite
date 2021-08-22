@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
@@ -20,23 +21,30 @@ import com.softsquared.template.kotlin.src.main.home.data.RecoMagazineData
 import com.softsquared.template.kotlin.src.main.home.data.RecoNewHotData
 import com.softsquared.template.kotlin.src.main.home.data.RecoSpriceData
 
-class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHomeRecommendBinding::bind, R.layout.fragment_home_recommend){
+class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
+    FragmentHomeRecommendBinding::bind,
+    R.layout.fragment_home_recommend
+) {
 
     // NEW & HOT adpater
-    private lateinit var nhAdapter:RecoNewHotAdapter
+    private lateinit var nhAdapter: RecoNewHotAdapter
 
     // 오늘의특가 adpater
-    private lateinit var spAdapter:RecoSpriceAdapter
+    private lateinit var spAdapter: RecoSpriceAdapter
 
     // 오늘의 인기 매거진 adpater
-    private lateinit var magazineAdapter:RecoMagazineAdapter
+    private lateinit var magazineAdapter: RecoMagazineAdapter
 
     // viewpager 아이템 변경을 위한 변수
     private var currentPosition = 0
 
+    private lateinit var thread: Thread
+
+    var threadState = true
+
     //핸들러 설정
     //ui 변경하기
-    val handler= Handler(Looper.getMainLooper()){
+    val handler = Handler(Looper.getMainLooper()) {
         setPage()
         true
     }
@@ -53,12 +61,12 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
         //////////////////////////////// "NEW&HOT" 정보를 담는 배열 생성 /////////////////////////////////////
         val nhList = ArrayList<RecoNewHotData>()
 
-        nhList.add(RecoNewHotData("고속버스",resources.getDrawable(R.drawable.home_reco_nh_bus)))
-        nhList.add(RecoNewHotData("풀빌라",resources.getDrawable(R.drawable.home_reco_nh_bila)))
-        nhList.add(RecoNewHotData("물놀이특가",resources.getDrawable(R.drawable.home_reco_nh_water)))
-        nhList.add(RecoNewHotData("아이야놀자",resources.getDrawable(R.drawable.home_reco_nh_baby)))
-        nhList.add(RecoNewHotData("호캉스패키지",resources.getDrawable(R.drawable.home_reco_nh_food)))
-        nhList.add(RecoNewHotData("맛집",resources.getDrawable(R.drawable.home_reco_nh_dish)))
+        nhList.add(RecoNewHotData("고속버스", resources.getDrawable(R.drawable.home_reco_nh_bus)))
+        nhList.add(RecoNewHotData("풀빌라", resources.getDrawable(R.drawable.home_reco_nh_bila)))
+        nhList.add(RecoNewHotData("물놀이특가", resources.getDrawable(R.drawable.home_reco_nh_water)))
+        nhList.add(RecoNewHotData("아이야놀자", resources.getDrawable(R.drawable.home_reco_nh_baby)))
+        nhList.add(RecoNewHotData("호캉스패키지", resources.getDrawable(R.drawable.home_reco_nh_food)))
+        nhList.add(RecoNewHotData("맛집", resources.getDrawable(R.drawable.home_reco_nh_dish)))
 
         nhAdapter = RecoNewHotAdapter(nhList, this, requireActivity())
 
@@ -73,27 +81,50 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
 
         ///////////////////////////////////// 광고 viewpager ///////////////////////////////////////////
 //        //뷰페이저 넘기는 쓰레드
-          val thread=Thread(PagerRunnable())
-          thread.start()
+        thread = Thread(PagerRunnable())
+        thread.start()
 
         // viewpager adapter 연결
         binding.recoViewpager.adapter = RecoViewPagerAdapter(requireContext())
 
 
-
         //////////////////////////////////////// "오늘의 특가" 정보를 담는 배열 생성 //////////////////////////////////////////
         val spList = ArrayList<RecoSpriceData>()
 
-        spList.add(RecoSpriceData("50%","소노 호텔&리조트","선착순 쿠폰 특가","5만원대",
-            resources.getColor(R.color.special_one).toDrawable(),resources.getDrawable(R.drawable.reco_special_img_one)))
+        spList.add(
+            RecoSpriceData(
+                "50%",
+                "소노 호텔&리조트",
+                "선착순 쿠폰 특가",
+                "5만원대",
+                resources.getColor(R.color.special_one).toDrawable(),
+                resources.getDrawable(R.drawable.reco_special_img_one)
+            )
+        )
 
-        spList.add(RecoSpriceData("30%","인기 펜션&풀빌라","선착순 쿠폰 특가","3만원대",
-            resources.getColor(R.color.special_two).toDrawable(),resources.getDrawable(R.drawable.reco_special_img_two)))
+        spList.add(
+            RecoSpriceData(
+                "30%",
+                "인기 펜션&풀빌라",
+                "선착순 쿠폰 특가",
+                "3만원대",
+                resources.getColor(R.color.special_two).toDrawable(),
+                resources.getDrawable(R.drawable.reco_special_img_two)
+            )
+        )
 
-        spList.add(RecoSpriceData("50%","베스킨라빈스","쿼터 아이스크림","10,000원",
-            resources.getColor(R.color.special_three).toDrawable(),resources.getDrawable(R.drawable.reco_special_img_three)))
+        spList.add(
+            RecoSpriceData(
+                "50%",
+                "베스킨라빈스",
+                "쿼터 아이스크림",
+                "10,000원",
+                resources.getColor(R.color.special_three).toDrawable(),
+                resources.getDrawable(R.drawable.reco_special_img_three)
+            )
+        )
 
-        spAdapter = RecoSpriceAdapter(spList,this,requireActivity())
+        spAdapter = RecoSpriceAdapter(spList, this, requireActivity())
 
         val linearLayoutManager2 = LinearLayoutManager(requireActivity())
         linearLayoutManager2.orientation = LinearLayoutManager.HORIZONTAL
@@ -106,7 +137,8 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
 
         //////////////////////////////////////////// 위클리 인기 Top //////////////////////////////////////////////
         setUpWeeklyViewPager()
-        binding.weeklyPopularTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        binding.weeklyPopularTabLayout.addOnTabSelectedListener(object :
+            TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
 
@@ -119,15 +151,35 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
 
         /////////////////////////////////////// 오늘의 인기 매거진 ///////////////////////////////////////////////////
         val magazineList = ArrayList<RecoMagazineData>()
-        magazineList.add(RecoMagazineData("숲 속 언택트 힐링 \n홍천 부티크 풀빌라", ContextCompat.getDrawable(requireContext(),R.drawable.img_magazine_one)!!))
-        magazineList.add(RecoMagazineData("국내 1위로 뽑혔다는 \n강릉 오션뷰 풀빌라", ContextCompat.getDrawable(requireContext(),R.drawable.img_magazine_two)!!))
-        magazineList.add(RecoMagazineData("1시간이면 갈 수 있는 \n근교 숲캉스 숙소", ContextCompat.getDrawable(requireContext(),R.drawable.img_magazine_three)!!))
-        magazineList.add(RecoMagazineData("SNS에서 유명한 \n테마별 태안 숙소", ContextCompat.getDrawable(requireContext(),R.drawable.img_magazine_four)!!))
+        magazineList.add(
+            RecoMagazineData(
+                "숲 속 언택트 힐링 \n홍천 부티크 풀빌라",
+                ContextCompat.getDrawable(requireContext(), R.drawable.img_magazine_one)!!
+            )
+        )
+        magazineList.add(
+            RecoMagazineData(
+                "국내 1위로 뽑혔다는 \n강릉 오션뷰 풀빌라",
+                ContextCompat.getDrawable(requireContext(), R.drawable.img_magazine_two)!!
+            )
+        )
+        magazineList.add(
+            RecoMagazineData(
+                "1시간이면 갈 수 있는 \n근교 숲캉스 숙소",
+                ContextCompat.getDrawable(requireContext(), R.drawable.img_magazine_three)!!
+            )
+        )
+        magazineList.add(
+            RecoMagazineData(
+                "SNS에서 유명한 \n테마별 태안 숙소",
+                ContextCompat.getDrawable(requireContext(), R.drawable.img_magazine_four)!!
+            )
+        )
 
         val linearLayoutManager3 = LinearLayoutManager(requireActivity())
         linearLayoutManager3.orientation = LinearLayoutManager.HORIZONTAL
 
-        magazineAdapter = RecoMagazineAdapter(magazineList,this,requireActivity())
+        magazineAdapter = RecoMagazineAdapter(magazineList, this, requireActivity())
 
         // 리사이클러 뷰 타입 설정
         binding.recoMagazineRv.layoutManager = linearLayoutManager3
@@ -137,18 +189,29 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
     }
 
     //페이지 변경하기
-    fun setPage(){
-        if(currentPosition==5) currentPosition=0
-        binding.recoViewpager.setCurrentItem(currentPosition,true)
-        currentPosition+=1
+    fun setPage() {
+        if (currentPosition == 5) currentPosition = 0
+        binding.recoViewpager.setCurrentItem(currentPosition, true)
+        currentPosition += 1
     }
 
     //2초 마다 페이지 넘기기
-    inner class PagerRunnable:Runnable{
+    inner class PagerRunnable : Runnable {
         override fun run() {
-            while(true){
-                Thread.sleep(2000)
-                handler.sendEmptyMessage(0)
+            while (threadState) {
+                try {
+                    Thread.sleep(2000)
+                    handler.sendEmptyMessage(0)
+
+
+                } catch (e: Exception) {
+
+                }
+
+            }
+            if (!threadState) {
+
+                thread.interrupt()
             }
         }
     }
@@ -157,7 +220,7 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
         viewPagers = binding.weeklyPopularViewPager
         tabLayouts = binding.weeklyPopularTabLayout
 
-        var adapter = RecoWeeklyViewPagerAdapter(childFragmentManager!!)
+        var adapter = RecoWeeklyViewPagerAdapter(childFragmentManager)
         adapter.addFragment(RecoWeeklyMobileFragment(), "모바일교환권")
         adapter.addFragment(RecoWeeklyPensionFragment(), "펜션")
         adapter.addFragment(RecoWeeklyHotelFragment(), "호텔")
@@ -174,6 +237,24 @@ class RecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHom
             p.setMargins(dpToPx(5), 5, dpToPx(5), 5)
             tab.requestLayout()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        threadState = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        try {
+            threadState = false
+            thread.interrupt()
+        } catch (e: InterruptedException) {
+            e.stackTrace
+        }
+
+
     }
 
 }
