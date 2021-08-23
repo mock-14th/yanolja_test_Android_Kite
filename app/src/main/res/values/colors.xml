@@ -11,6 +11,7 @@
     <color name="subColor">#FFECF2</color>
     <color name="secondColor">#BBBBBB</color>
     <color name="fragBgColor">#F2F2F2</color>
+    <color name="starColor">#F3C041</color>
 
     <!--바텀 네비게이션-->
     <color name="navi_default">#BBBBBB</color>

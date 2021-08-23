@@ -1,45 +1,20 @@
 package com.softsquared.template.kotlin.src.main.region.ui
 
-import RegionMainAdapter
-import RegionSubAdapter
-import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.Region
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
+import RegionMainActivityAdapter
+import RegionSubActivityAdapter
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.softsquared.template.kotlin.R
-import com.softsquared.template.kotlin.config.BaseFragment
-import com.softsquared.template.kotlin.databinding.FragmentTabRegionBinding
-import com.softsquared.template.kotlin.databinding.ItemTabRegionMainBinding
-import com.softsquared.template.kotlin.src.main.MainActivity
-import com.softsquared.template.kotlin.src.main.region.RegionRoomListActivity
+import com.softsquared.template.kotlin.config.BaseActivity
+import com.softsquared.template.kotlin.databinding.ActivityRegionTabBinding
 import com.softsquared.template.kotlin.src.main.region.data.RegionMainData
 import com.softsquared.template.kotlin.src.main.region.data.RegionSubData
-import okhttp3.internal.notifyAll
-import org.w3c.dom.Text
-import java.util.zip.Inflater
 
-class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
-    FragmentTabRegionBinding::bind,
-    R.layout.fragment_tab_region
-) {
+class RegionTabActivity:BaseActivity<ActivityRegionTabBinding>(ActivityRegionTabBinding::inflate) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         // 행정구역
         val mainList = ArrayList<RegionMainData>()
@@ -61,26 +36,25 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
         mainList.add(RegionMainData("전주/전북"))
 
         // 아이템 연결
-        val mainAdapter = RegionMainAdapter(mainList, this, this.requireContext())
+        val mainAdapter = RegionMainActivityAdapter(mainList, this)
         binding.regionLvMain.adapter = mainAdapter
 
         // 리사이클러 뷰 타입 설정
-        val linearLayoutManager = LinearLayoutManager(requireActivity())
+        val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         binding.regionLvMain.layoutManager = linearLayoutManager
 
         // 구분선 삽입
         binding.regionLvMain.addItemDecoration(
             DividerItemDecoration(
-                requireContext(),
+                this,
                 LinearLayoutManager.VERTICAL
             )
         )
 
         // 만든 어댑터 recyclerview에 연결
         binding.regionLvMain.adapter = mainAdapter
-
-//        // 행정구역(서울)
+        // 행정구역(서울)
         val subListSeoul = ArrayList<RegionSubData>()
         subListSeoul.add(RegionSubData("강남/역삼/삼성/논현"))
         subListSeoul.add(RegionSubData("서초/신사/방배"))
@@ -106,17 +80,17 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
 
         // 도시 리사이클러뷰
         // 아이템 연결
-        val subAdapterSeoul = RegionSubAdapter(subListSeoul, this, this.requireContext())
+        val subAdapterSeoul = RegionSubActivityAdapter(subListSeoul, this)
 
         // 리사이클러 뷰 타입 설정
-        val linearLayoutManager2 = LinearLayoutManager(requireActivity())
+        val linearLayoutManager2 = LinearLayoutManager(this)
         linearLayoutManager2.orientation = LinearLayoutManager.VERTICAL
         binding.regionLvSub.layoutManager = linearLayoutManager2
 
         // 구분선 삽입
         binding.regionLvSub.addItemDecoration(
             DividerItemDecoration(
-                requireContext(),
+                this,
                 LinearLayoutManager.VERTICAL
             )
         )
@@ -134,13 +108,13 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
         subListGeong.add(RegionSubData("하남/광주/여주/이천"))
         binding.regionLvSub.adapter = subAdapterSeoul
 
-        val subAdapterGeong = RegionSubAdapter(subListGeong, this, this.requireContext())
+        val subAdapterGeong = RegionSubActivityAdapter(subListGeong, this)
 
 
         val emptyList = ArrayList<RegionSubData>()
-        val emptyAdapter = RegionSubAdapter(emptyList, this, this.requireContext())
+        val emptyAdapter = RegionSubActivityAdapter(emptyList, this)
 
-        mainAdapter.setOnItemClickListener(object : RegionMainAdapter.OnItemClickListener {
+        mainAdapter.setOnItemClickListener(object : RegionMainActivityAdapter.OnItemClickListener {
             override fun onItemClick(v: View, data: RegionMainData, pos: Int) {
 
                 when (pos) {
@@ -157,19 +131,8 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
                 }
 
             }
-
         }) {
         }
-
-
-        subAdapterSeoul.setOnItemClickListener(object : RegionSubAdapter.OnItemClickListener {
-            override fun onItemClick(v: View, data: RegionSubData, pos: Int) {
-
-                // 모텔 텝 화면 부르기
-                val nextIntent = Intent(context,RegionRoomListActivity::class.java)
-                startActivity(nextIntent)
-            }
-        }) {}
-
     }
+
 }

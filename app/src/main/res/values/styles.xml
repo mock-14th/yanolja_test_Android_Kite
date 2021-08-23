@@ -85,6 +85,21 @@
         <item name="colorSurface">@color/black</item>
     </style>
 
+    <!--탭 레이아웃 커스튬(RoomListActivity) -->
+    <style name="RoomListTabStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/RoomListThemeOverlay</item>
+        <item name="tabTextAppearance">@style/RoomListTxtAppearance</item>
+    </style>
+    <style name="RoomListTxtAppearance" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+    <style name="RoomListThemeOverlay" parent="">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorSurface">@color/black</item>
+    </style>
+
     <!-- chip 탭 레이아웃 커스튬 -->
     <style name="ChipTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorColor">@android:color/transparent</item>
@@ -92,12 +107,20 @@
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
 
-    <!-- rating bar 커스튬 -->
+    <!-- rating bar 커스튬(홈) -->
     <style name="customRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
         <item name="android:minHeight">15dp</item>
         <item name="android:maxHeight">15dp</item>
     </style>
+
+    <!-- rating bar 커스튬(지역) -->
+    <style name="customRatingBarRegion" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
+        <item name="android:minHeight">25dip</item>
+        <item name="android:maxHeight">25dip</item>
+    </style>
+
 
 
 

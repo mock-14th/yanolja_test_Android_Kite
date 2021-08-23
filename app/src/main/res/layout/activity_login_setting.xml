@@ -31,8 +31,8 @@
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/setting_login_ibtn_back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_login_back_btn"
@@ -49,7 +49,7 @@
                 android:paddingBottom="5dp"
                 android:text="@string/my_page_setting"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/setting_login_ibtn_back"
                 app:layout_constraintTop_toTopOf="parent" />
