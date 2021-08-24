@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseFragment
 import com.softsquared.template.kotlin.databinding.DialogSetDayAndCntBinding
+import com.softsquared.template.kotlin.databinding.FragmentRegionHotelRecoBinding
 import com.softsquared.template.kotlin.databinding.FragmentRegionMotelRecoBinding
 import com.softsquared.template.kotlin.src.main.region.RegionRoomListActivity
 import com.softsquared.template.kotlin.src.main.region.adapter.MotelListAdapter
@@ -19,9 +20,9 @@ import com.softsquared.template.kotlin.src.main.region.models.MotelListResponse
 import com.softsquared.template.kotlin.src.main.region.network.MotelListFragmentView
 import com.softsquared.template.kotlin.src.main.region.network.MotelListService
 
-class MotelListFragment:BaseFragment<FragmentRegionMotelRecoBinding>(
-    FragmentRegionMotelRecoBinding::bind,
-    R.layout.fragment_region_motel_reco
+class HotelListFragment:BaseFragment<FragmentRegionHotelRecoBinding>(
+    FragmentRegionHotelRecoBinding::bind,
+    R.layout.fragment_region_hotel_reco
 ),MotelListFragmentView {
 
     val TAG = "tag"

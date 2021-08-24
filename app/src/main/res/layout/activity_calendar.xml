@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.applikeysolutions.cosmocalendar.view.CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:connectedDayIconPosition="top"
+        app:currentDayIconRes="@color/mainColor"
+        app:currentDaySelectedIconRes="@drawable/ic_room_list_person"
+        app:currentDayTextColor="@color/mainColor"
+        app:firstDayOfTheWeek="sunday"
+        app:orientation="horizontal"
+        app:selectedDayBackgroundColor="#FFEACA"
+        app:selectedDayBackgroundEndColor="@color/mainColor"
+        app:selectedDayBackgroundStartColor="@color/mainColor"
+        app:selectedDayTextColor="#FFFFFF"
+        app:selectionType="range"
+        app:weekendDayTextColor="#ef4550" />
+</LinearLayout>

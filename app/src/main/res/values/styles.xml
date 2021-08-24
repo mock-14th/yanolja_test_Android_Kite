@@ -122,6 +122,15 @@
     </style>
 
 
+    <!-- 커스텀 다이얼로그(인원수 및 날짜 체크) -->
+    <style name="MyDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/mainColor</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
 
 
 

@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="5dp"
+    android:elevation="0.5dp"
+    android:background="@drawable/bg_white_and_gray_stroke"
     android:layout_marginBottom="20dp">
 
 
@@ -261,6 +263,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/item_rent_price_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="25,000원"
@@ -343,6 +346,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/item_sleep_price_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="50,000원"

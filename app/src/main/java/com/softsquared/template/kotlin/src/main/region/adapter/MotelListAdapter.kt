@@ -58,13 +58,17 @@ class MotelListAdapter(var itemList:ArrayList<MotelListData>, val fragment_s: Fr
             Glide.with(itemView).load(itemList.photoIV).into(binding.itemHotelIv)
 
             // 평균별점
-            //binding.motelItemRateTv
+            binding.motelItemRatingbar.rating = itemList.rating!!.toFloat()
+            binding.motelItemRateTv.text = itemList.rating
 
             // 후기개수
+            binding.motelItemCommentNumTv.text = itemList.commentCnt.toString()
 
             // 대실가격
+            binding.itemRentPriceTv.text = itemList.rentPrice
 
             // 숙박가격
+            binding.itemSleepPriceTv.text = itemList.sleepPrcie
 
             val pos = adapterPosition
             if(pos!= RecyclerView.NO_POSITION)

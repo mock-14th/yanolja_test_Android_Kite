@@ -8,6 +8,7 @@ import com.softsquared.template.kotlin.config.BaseActivity
 import com.softsquared.template.kotlin.databinding.ActivityRegionRoomListBinding
 import com.softsquared.template.kotlin.src.main.home.adapter.HomePagerAdapter
 import com.softsquared.template.kotlin.src.main.home.ui.EtcFragment
+import com.softsquared.template.kotlin.src.main.region.ui.HotelListFragment
 import com.softsquared.template.kotlin.src.main.region.ui.MotelListFragment
 import com.softsquared.template.kotlin.src.main.region.ui.RegionTabActivity
 
@@ -48,7 +49,7 @@ class RegionRoomListActivity : BaseActivity<ActivityRegionRoomListBinding>(Activ
 
         var adapter = HomePagerAdapter(supportFragmentManager)
         adapter.addFragment(MotelListFragment(), "모텔")
-        adapter.addFragment(EtcFragment(), "호텔/리조트")
+        adapter.addFragment(HotelListFragment(), "호텔/리조트")
         adapter.addFragment(EtcFragment(),"펜션/풀빌라")
         adapter.addFragment(EtcFragment(),"게스트하우스")
         adapter.addFragment(EtcFragment(),"#무한쿠폰룸")
