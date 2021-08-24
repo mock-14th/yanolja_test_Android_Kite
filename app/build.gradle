@@ -88,7 +88,4 @@ dependencies {
     // calendar 오픈소스
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
 
-    // RatingBar 오픈소스(길이)
-    implementation 'com.github.Inconnu08:android-ratingreviews:1.2.0'
-
 }
