@@ -1,19 +1,14 @@
 package com.softsquared.template.kotlin.src.main.region.ui
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseFragment
 import com.softsquared.template.kotlin.databinding.DialogSetDayAndCntBinding
 import com.softsquared.template.kotlin.databinding.FragmentRegionMotelRecoBinding
-import com.softsquared.template.kotlin.src.main.MotelInfoActivity
-import com.softsquared.template.kotlin.src.main.region.RegionRoomListActivity
 import com.softsquared.template.kotlin.src.main.region.adapter.MotelListAdapter
 import com.softsquared.template.kotlin.src.main.region.data.MotelListData
 import com.softsquared.template.kotlin.src.main.region.models.MotelListResponse
@@ -89,7 +84,7 @@ class MotelListFragment(regionCode:Int):BaseFragment<FragmentRegionMotelRecoBind
 
                 val bradID = data.roomId
 
-                val nextIntent = Intent(requireContext(),MotelInfoActivity::class.java)
+                val nextIntent = Intent(requireContext(), MotelInfoActivity::class.java)
 
                 nextIntent.putExtra("bradID",bradID)
                 nextIntent.putExtra("startDate","2021-08-18")

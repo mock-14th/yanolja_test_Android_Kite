@@ -109,9 +109,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
+                android:layout_height="320dp">
 
-                <androidx.viewpager2.widget.ViewPager2
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/room_viewpager"
                     android:background="@color/fragBgColor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -162,55 +163,6 @@
                                 android:background="@android:color/transparent"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/ic_cart_white" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_alignParentBottom="true"
-                            android:alpha="0.3"
-                            android:background="@color/secondColor">
-                        </View>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="85dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@drawable/gra_white_and_trans">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_centerVertical="true"
-                                android:layout_marginStart="20dp"
-                                android:gravity="bottom"
-                                android:text="대표사진"
-                                android:textColor="@color/black" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:alpha="0.5"
-                                android:gravity="bottom"
-                                android:text="1/144"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true"
-                                android:alpha="0.8"
-                                android:layout_marginEnd="10dp"
-                                android:background="@color/black"
-                                android:padding="6dp"
-                                android:text="전체사진"
-                                android:gravity="bottom"
-                                android:textColor="@color/white"
-                                android:textSize="12sp" />
                         </RelativeLayout>
 
 
@@ -274,13 +226,13 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_gravity="bottom"
                             android:layout_marginStart="10dp"
                             android:gravity="bottom"
@@ -291,7 +243,7 @@
                         <TextView
                             android:id="@+id/comment_cnt_tv"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_gravity="bottom"
                             android:layout_marginStart="2dp"
                             android:gravity="bottom"
@@ -302,7 +254,7 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_gravity="bottom"
                             android:gravity="bottom"
                             android:text="개"
@@ -310,19 +262,19 @@
                             android:textSize="20sp" />
 
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="15dp"
                             android:layout_height="match_parent"
-                            android:layout_gravity="bottom"
+                            android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_arrow_right_blue" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:layout_marginStart="5dp"
                         android:gravity="bottom"
-                        android:text="숙소 답변(500+)"
+                        android:text="숙소 답변(1+)"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -1164,7 +1116,7 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:scrollbars="none">
 
                         <LinearLayout
@@ -1327,13 +1279,13 @@
                             android:layout_marginTop="20dp"
                             android:gravity="center|start"
                             android:maxLines="4"
-                            android:text="라이징테스트 힘들다.. 하지만...잘 마무리해내고 싶어요ㅠㅠㅠ"
+                            android:text=""
                             android:textSize="19sp" />
                     </RelativeLayout>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:scrollbars="none">
 
                         <LinearLayout

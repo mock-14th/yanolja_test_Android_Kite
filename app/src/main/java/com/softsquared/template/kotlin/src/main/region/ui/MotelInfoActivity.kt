@@ -1,20 +1,23 @@
-package com.softsquared.template.kotlin.src.main
+package com.softsquared.template.kotlin.src.main.region.ui
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.ScrollView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.google.gson.annotations.SerializedName
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.config.BaseActivity
 import com.softsquared.template.kotlin.databinding.ActivityMotelInfoBinding
+import com.softsquared.template.kotlin.src.main.region.adapter.HotelInfoViewPagerAdapter
+import com.softsquared.template.kotlin.src.main.region.adapter.MotelListAdapter
+import com.softsquared.template.kotlin.src.main.region.adapter.MotelRoomAdapter
+import com.softsquared.template.kotlin.src.main.region.data.MotelListData
+import com.softsquared.template.kotlin.src.main.region.data.MotelRoomData
 import com.softsquared.template.kotlin.src.main.region.models.RoomInfoResponse
 import com.softsquared.template.kotlin.src.main.region.network.RoomInfoFragmentView
 import com.softsquared.template.kotlin.src.main.region.network.RoomInfoService
@@ -24,6 +27,11 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
 
     var count: Int = 0
     val TAG = "TAG"
+    private var motelRoomList = ArrayList<MotelRoomData>()
+
+    var this_branId = 1
+    var this_startDate = ""
+    var this_endDate = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +41,13 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
         val brandID = intent.getIntExtra("brandID", 1)
         val startDate = intent.getStringExtra("startDate").toString()
         val endDate = intent.getStringArrayExtra("endDate").toString()
+
+
+        // DetailRoomActivity에 넘겨줄 데이터 변수 담기
+        this_branId = brandID
+        this_startDate = startDate
+        this_endDate = endDate
+
 
         // 서버통신 api 10번 (특정 숙소의 날짜에 따른 방목록 조회)
         showLoadingDialog(this)
@@ -54,7 +69,9 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
                 )
             }
         }
+
     }
+
 
     // 스크롤 이동 이벤트
     private fun scrollToView(view: View, scrollView: NestedScrollView, count: Int) {
@@ -88,7 +105,6 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
         dismissLoadingDialog()
         if (response.code == 1000) {
 
-
             // 모텔의 기본 정보 받아오기 (BrandInfo)
             // 숙박업소명
             binding.hotelNameTvTopbar.text = response.result.brandInfo[0].hotelName
@@ -113,7 +129,8 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
 
             // 비품만족도
             binding.satisfyTv.text = response.result.brandInfo[0].goodsSatify
-            binding.satisfyProgress.progress = response.result.brandInfo[0].goodsSatify.toString().toInt()
+            binding.satisfyProgress.progress =
+                response.result.brandInfo[0].goodsSatify.toString().toInt()
 
             // 친절도
             binding.kindTv.text = response.result.brandInfo[0].kind
@@ -123,25 +140,27 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
             binding.easeTv.text = response.result.brandInfo[0].ease
             binding.easeProgress.progress = response.result.brandInfo[0].ease.toString().toInt()
 
+            // 대표이미지 설정
+            // viewpager
+            var roomPhotoListString = response.result.brandInfo[0].motelImg
+            var roomPhotoListArray = roomPhotoListString.split(",")
+
+            binding.roomViewpager.adapter = HotelInfoViewPagerAdapter(this, roomPhotoListArray)
 
 
+            // 존재하는 방 정보 받아오기 (Room)
+            val roomCnt = response.result.roomList.size
 
+            for(i in 0 until roomCnt) {
 
+                motelRoomList.add(
+                    MotelRoomData(response.result.roomList[i].roomImg, response.result.roomList[i].roomType, response.result.roomList[i].roomOption,
+                        response.result.roomList[i].roomGizoonCnt,response.result.roomList[i].roomMaxCnt,response.result.roomList[i].roomRentPrice,
+                        response.result.roomList[i].roomSleepPrice,response.result.roomList[i].roomCheckInTime,this_branId,this_startDate,this_endDate)
+                )
+            }
 
-
-//            @SerializedName("전체이미지") val motelImg: String,
-//            @SerializedName("카테고리") val category: String,
-
-
-
-
-
-            // 존재하는 방 정보 밥아오기 (Room)
-
-
-
-
-
+            setMotelRoomListAdapter()
 
 
             // 이용후기 (Review)
@@ -162,11 +181,11 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
             binding.reviewReviewComment1.text = response.result.reviewList[0].reviewContent
 
             // 후기 이미지
-            if(response.result.reviewList[0].reviewImg != null) {
+            if (response.result.reviewList[0].reviewImg != null) {
                 Glide.with(this).load(response.result.reviewList[0].reviewImg)
                     .into(binding.reviewImgOne1)
                 binding.reviewImgOne2.visibility = View.GONE
-            }else{
+            } else {
                 binding.reviewImgOne1.visibility = View.GONE
                 binding.reviewImgOne2.visibility = View.GONE
             }
@@ -188,22 +207,53 @@ class MotelInfoActivity : BaseActivity<ActivityMotelInfoBinding>(ActivityMotelIn
             binding.reviewReviewComment2.text = response.result.reviewList[1].reviewContent
 
             // 후기 이미지
-            if(response.result.reviewList[1].reviewImg != null) {
+            if (response.result.reviewList[1].reviewImg != null) {
                 Glide.with(this).load(response.result.reviewList[1].reviewImg)
                     .into(binding.reviewImgTwo1)
                 binding.reviewImgTwo2.visibility = View.GONE
-            }else{
+            } else {
                 binding.reviewImgTwo1.visibility = View.GONE
                 binding.reviewImgTwo2.visibility = View.GONE
             }
 
 
-
         }
+
+
     }
 
     override fun onGetRoomInfoFailure(message: String) {
         dismissLoadingDialog()
         Log.e(TAG, message)
+    }
+
+    private fun setMotelRoomListAdapter(){
+
+        val motelRoomListAdapter = MotelRoomAdapter(this,motelRoomList)
+
+        // 리사이클러 뷰 타입 설정
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        binding.thisRoomListRv.layoutManager = linearLayoutManager
+
+        binding.thisRoomListRv.adapter = motelRoomListAdapter
+
+
+//        // 숙소 아이디를 받아와서 모텔 정보(MotelInfoActivity) 화면으로 이동하기
+//        motelRoomListAdapter.setOnItemClickListener(object : MotelRoomAdapter.OnItemClickListener {
+//            override fun onItemClick(v: View, data: MotelListData, pos: Int) {
+//
+//                val bradID = data.roomId
+//
+//                val nextIntent = Intent(this, MotelInfoActivity::class.java)
+//
+//                nextIntent.putExtra("bradID",bradID)
+//                nextIntent.putExtra("startDate","2021-08-18")
+//                nextIntent.putExtra("endDate","2021-08-20")
+//
+//                startActivity(nextIntent)
+//
+//            }
+//        }){}
     }
 }

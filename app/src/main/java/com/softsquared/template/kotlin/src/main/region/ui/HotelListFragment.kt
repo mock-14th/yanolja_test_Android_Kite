@@ -23,7 +23,7 @@ import com.softsquared.template.kotlin.src.main.region.network.MotelListService
 class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBinding>(
     FragmentRegionHotelRecoBinding::bind,
     R.layout.fragment_region_hotel_reco
-), MotelListFragmentView {
+), HotelListFragmentView {
 
     val TAG = "tag"
 
@@ -81,13 +81,13 @@ class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBi
 
     private fun setAdapter() {
         // 아이템 연결
-        val motelAdapter = MotelListAdapter(motelList, this, this.requireContext())
+        val motelAdapter = MotelListAdapter(hotelList, this, this.requireContext())
 
         // 리사이클러 뷰 타입 설정
         val linearLayoutManager = LinearLayoutManager(this.requireContext())
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding.motelListRv.layoutManager = linearLayoutManager
+        binding.hotelListRv.layoutManager = linearLayoutManager
 
-        binding.motelListRv.adapter = motelAdapter
+        binding.hotelListRv.adapter = hotelAdapter
     }
 }

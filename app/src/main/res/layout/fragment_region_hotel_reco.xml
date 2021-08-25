@@ -136,11 +136,11 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/motel_list_rv"
+                android:id="@+id/hotel_list_rv"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                tools:listitem="@layout/item_region_motel_list"
+                tools:listitem="@layout/item_region_hotel_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>

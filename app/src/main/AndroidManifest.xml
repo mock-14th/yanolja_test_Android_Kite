@@ -30,7 +30,9 @@
         <activity android:name=".src.main.login.ui.LoginSettingActivity" />
         <activity android:name=".src.main.login.ui.LoginActivity"></activity>
         <activity android:name=".src.main.region.ui.RegionTabActivity"></activity>
-        <activity android:name=".src.main.MotelInfoActivity">
+        <activity android:name=".src.main.region.ui.MotelInfoActivity">
+        </activity>
+        <activity android:name=".src.main.region.ui.RoomDetailActivity">
         </activity>
         <activity
             android:name=".src.splash.SplashActivity"
