@@ -16,8 +16,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
 
+        <activity android:name=".src.main.region.ui.PersonNumCntActivity">
+
+        </activity>
         <activity android:name=".src.main.region.RegionRoomListActivity"></activity>
-        <activity android:name=".src.main.region.ui.CalendarActivity"></activity>
+        <activity android:name=".src.main.region.ui.CalendarActivity">
+
+        </activity>
         <activity android:name=".src.main.register.ui.RegisterLastActivity"></activity>
         <activity android:name=".src.main.register.ui.RegisterActivity3"></activity>
         <activity android:name=".src.main.register.ui.RegisterActivity2" />
@@ -26,16 +31,16 @@
         <activity android:name=".src.main.login.ui.LoginActivity"></activity>
         <activity android:name=".src.main.region.ui.RegionTabActivity"></activity>
         <activity android:name=".src.main.MotelInfoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".src.splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".src.main.MainActivity"

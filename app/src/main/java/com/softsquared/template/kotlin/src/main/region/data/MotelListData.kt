@@ -1,6 +1,7 @@
 package com.softsquared.template.kotlin.src.main.region.data
 
 data class MotelListData(
+    var roomId : Int?,
     var motelNameTxt: String?,
     var photoIV: String?,
     var rating: String?,

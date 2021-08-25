@@ -166,8 +166,20 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
             override fun onItemClick(v: View, data: RegionSubData, pos: Int) {
 
                 // 모텔 텝 화면 부르기
-                val nextIntent = Intent(context,RegionRoomListActivity::class.java)
-                startActivity(nextIntent)
+                val nextIntent = Intent(context, RegionRoomListActivity::class.java)
+
+                when (pos) {
+                    0 -> { // 서울/강남
+                        nextIntent.putExtra("region", 1)
+                        startActivity(nextIntent)
+                    }
+
+                    1 -> { // 서초/방배
+                        nextIntent.putExtra("region", 3)
+                        showCustomToast("regioncode:3")
+                        startActivity(nextIntent)
+                    }
+                }
             }
         }) {}
 

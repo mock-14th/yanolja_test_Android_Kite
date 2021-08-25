@@ -49,7 +49,6 @@ class MotelListAdapter(var itemList:ArrayList<MotelListData>, val fragment_s: Fr
     inner class MotelItemHolder(val binding: ItemRegionMotelListBinding, var context: Context): RecyclerView.ViewHolder(binding.root) {
         fun setItemList(itemList: MotelListData){
 
-            // 카테고리
 
             // 숙박업소명
             binding.motelItemMotelNameTv.text = itemList.motelNameTxt

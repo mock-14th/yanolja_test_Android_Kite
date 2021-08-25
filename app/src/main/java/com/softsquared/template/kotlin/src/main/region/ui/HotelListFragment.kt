@@ -20,10 +20,10 @@ import com.softsquared.template.kotlin.src.main.region.models.MotelListResponse
 import com.softsquared.template.kotlin.src.main.region.network.MotelListFragmentView
 import com.softsquared.template.kotlin.src.main.region.network.MotelListService
 
-class HotelListFragment:BaseFragment<FragmentRegionHotelRecoBinding>(
+class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBinding>(
     FragmentRegionHotelRecoBinding::bind,
     R.layout.fragment_region_hotel_reco
-),MotelListFragmentView {
+), MotelListFragmentView {
 
     val TAG = "tag"
 
@@ -39,26 +39,7 @@ class HotelListFragment:BaseFragment<FragmentRegionHotelRecoBinding>(
 
         // 네트워크 기본 값 연결
         showLoadingDialog(requireContext())
-        MotelListService(this).tryGetHotelList(1,"2021-08-18","2021-08-20",1)
-
-        // 인원 수 및 날짜 변경 리스너
-        val settingBtn = requireActivity().findViewById<RelativeLayout>(R.id.room_middlebar_cl_two)
-        settingBtn.setOnClickListener {
-
-            // fragment 올리기
-            val mBuilder = AlertDialog.Builder(requireContext(),R.style.MyDialogTheme).setView(binding2.root)
-            // view의 중복 사용을 방지하기 위한 코드
-            if (binding2.root.parent != null)
-                (binding2.root.parent as ViewGroup).removeView(binding2.root)
-
-            val mAlertDialog = mBuilder.show()
-
-            // 날짜 선택 창 열기
-            binding2.fragMiddlebarClOne.setOnClickListener {
-                val pickUpIntent = Intent(requireContext(),CalendarActivity::class.java)
-                startActivity(pickUpIntent)
-            }
-        }
+        MotelListService(this).tryGetHotelList(1, "2021-08-18", "2021-08-20", 1)
 
     }
 
@@ -67,17 +48,26 @@ class HotelListFragment:BaseFragment<FragmentRegionHotelRecoBinding>(
         Log.d(TAG, "Get JWT 성공")
 
         // 성공
-        if(response.code == 1000){
+        if (response.code == 1000) {
 
-            for(i in 0 until response.result.size) {
+            for (i in 0 until response.result.size) {
 
-                motelList.add(MotelListData(response.result[i].hotelName,response.result[i].mainPhoto,
-                    response.result[i].rateAverage,response.result[i].commentCnt,response.result[i].rentPrice,response.result[i].sleepPrcie))
+                motelList.add(
+                    MotelListData(
+                        response.result[i].roomId,
+                        response.result[i].hotelName,
+                        response.result[i].mainPhoto,
+                        response.result[i].rateAverage,
+                        response.result[i].commentCnt,
+                        response.result[i].rentPrice,
+                        response.result[i].sleepPrcie
+                    )
+                )
             }
 
             setAdapter()
 
-        }else{ // 오류
+        } else { // 오류
             // 6002 지역 아이디를 입력필요
             // 6003 시작날짜 입력 필요
             // 6004 마지막날짜 입력필요
@@ -89,7 +79,7 @@ class HotelListFragment:BaseFragment<FragmentRegionHotelRecoBinding>(
         TODO("Not yet implemented")
     }
 
-    private fun setAdapter(){
+    private fun setAdapter() {
         // 아이템 연결
         val motelAdapter = MotelListAdapter(motelList, this, this.requireContext())
 
