@@ -9,18 +9,18 @@ import retrofit2.Response
 class MotelListService(val view:MotelListFragmentView) {
 
     fun tryGetHotelList(result:Int,startDate:String,endDate:String,member:Int){
-        val hotelListRetrofitInterface = ApplicationClass.sRetrofit.create(MotelListInterface::class.java)
-        hotelListRetrofitInterface.getHotelList(result,startDate,endDate,member).enqueue(object :
+        val motelListRetrofitInterface = ApplicationClass.sRetrofit.create(MotelListInterface::class.java)
+        motelListRetrofitInterface.getMotelList(result,startDate,endDate,member).enqueue(object :
             Callback<MotelListResponse> {
             override fun onResponse(
                 call: Call<MotelListResponse>,
                 response: Response<MotelListResponse>
             ) {
-                view.onGetHotelListSuccess(response.body() as MotelListResponse)
+                view.onGetMotelListSuccess(response.body() as MotelListResponse)
             }
 
             override fun onFailure(call: Call<MotelListResponse>, t: Throwable) {
-                view.onGetHotelListFailure(t.message ?: "통신 오류")
+                view.onGetMotelListFailure(t.message ?: "통신 오류")
             }
         })
     }

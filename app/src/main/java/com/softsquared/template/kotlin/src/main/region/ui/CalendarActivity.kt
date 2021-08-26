@@ -65,8 +65,7 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>(ActivityCalendarB
             )
 
             var startDate = binding.calendarView.selectedDays[0].calendar.time
-            var endDate =
-                binding.calendarView.selectedDays[binding.calendarView.selectedDates.size - 1].calendar.time
+            var endDate = binding.calendarView.selectedDays[binding.calendarView.selectedDates.size - 1].calendar.time
 
 
             // 월
@@ -160,11 +159,22 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>(ActivityCalendarB
 
             checkInAndOutDate = binding.selectDateBtn.text.toString()
 
+
+            // 모텔 리스트 조회 activity
             intent.putExtra("startDate", "2021-0$checkInMonth-$checkInDate")
 
             intent.putExtra("endDate", "2021-0$checkOutMonth-$checkOutDate")
 
             intent.putExtra("showingDate", "0"+ checkInMonth + "." + checkInDate + "~" + "0" + checkOutMonth + "." + checkOutDate)
+
+
+            // 모텔 정보 상세 조회 activity
+            intent.putExtra("checkInDate","${checkInMonth}월 ${checkInDate}일($checkInDayOfWeek)")
+
+            intent.putExtra("checkOutDate","${checkOutMonth}월 ${checkOutDate}일($checkOutDayOfWeek)")
+
+            intent.putExtra("sendStartDate","20210$checkInMonth$checkInDate")
+            intent.putExtra("sendEndDate","20210$checkOutMonth$checkOutDate")
 
             setResult(RESULT_OK,intent)
 

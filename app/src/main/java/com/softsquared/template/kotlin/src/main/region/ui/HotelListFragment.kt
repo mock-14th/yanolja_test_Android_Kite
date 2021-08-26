@@ -14,9 +14,14 @@ import com.softsquared.template.kotlin.databinding.DialogSetDayAndCntBinding
 import com.softsquared.template.kotlin.databinding.FragmentRegionHotelRecoBinding
 import com.softsquared.template.kotlin.databinding.FragmentRegionMotelRecoBinding
 import com.softsquared.template.kotlin.src.main.region.RegionRoomListActivity
+import com.softsquared.template.kotlin.src.main.region.adapter.HotelListAdapter
 import com.softsquared.template.kotlin.src.main.region.adapter.MotelListAdapter
+import com.softsquared.template.kotlin.src.main.region.data.HotelListData
 import com.softsquared.template.kotlin.src.main.region.data.MotelListData
+import com.softsquared.template.kotlin.src.main.region.models.HotelListResponse
 import com.softsquared.template.kotlin.src.main.region.models.MotelListResponse
+import com.softsquared.template.kotlin.src.main.region.network.HotelListFragmentView
+import com.softsquared.template.kotlin.src.main.region.network.HotelListService
 import com.softsquared.template.kotlin.src.main.region.network.MotelListFragmentView
 import com.softsquared.template.kotlin.src.main.region.network.MotelListService
 
@@ -27,23 +32,32 @@ class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBi
 
     val TAG = "tag"
 
-    private val motelList = ArrayList<MotelListData>()
-    private lateinit var binding2: DialogSetDayAndCntBinding
+    private val hotelList = ArrayList<HotelListData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 프래그먼트로 올릴 다이얼로그 view
-        binding2 = DialogSetDayAndCntBinding.inflate(layoutInflater)
-
 
         // 네트워크 기본 값 연결
         showLoadingDialog(requireContext())
-        MotelListService(this).tryGetHotelList(1, "2021-08-18", "2021-08-20", 1)
+        HotelListService(this).tryGetHotelList(11, "2021-08-18", "2021-08-20", 1)
 
     }
 
-    override fun onGetHotelListSuccess(response: MotelListResponse) {
+
+    private fun setAdapter() {
+        // 아이템 연결
+        val hotelAdapter = HotelListAdapter(hotelList, this, this.requireContext())
+
+        // 리사이클러 뷰 타입 설정
+        val linearLayoutManager = LinearLayoutManager(this.requireContext())
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        binding.hotelListRv.layoutManager = linearLayoutManager
+
+        binding.hotelListRv.adapter = hotelAdapter
+    }
+
+    override fun onGetHotelListSuccess(response: HotelListResponse) {
         dismissLoadingDialog()
         Log.d(TAG, "Get JWT 성공")
 
@@ -52,15 +66,13 @@ class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBi
 
             for (i in 0 until response.result.size) {
 
-                motelList.add(
-                    MotelListData(
-                        response.result[i].roomId,
+                hotelList.add(
+                    HotelListData(
                         response.result[i].hotelName,
-                        response.result[i].mainPhoto,
-                        response.result[i].rateAverage,
-                        response.result[i].commentCnt,
-                        response.result[i].rentPrice,
-                        response.result[i].sleepPrcie
+                        response.result[i].hotelImg,
+                        response.result[i].hotelAvgRate,
+                        response.result[i].hotelCommentCnt,
+                        response.result[i].hotelSleepPrice
                     )
                 )
             }
@@ -73,21 +85,11 @@ class HotelListFragment(regionCode:Int) : BaseFragment<FragmentRegionHotelRecoBi
             // 6004 마지막날짜 입력필요
             // 6005 기준인원 입력필요
         }
+
     }
 
     override fun onGetHotelListFailure(message: String) {
         TODO("Not yet implemented")
     }
 
-    private fun setAdapter() {
-        // 아이템 연결
-        val motelAdapter = MotelListAdapter(hotelList, this, this.requireContext())
-
-        // 리사이클러 뷰 타입 설정
-        val linearLayoutManager = LinearLayoutManager(this.requireContext())
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding.hotelListRv.layoutManager = linearLayoutManager
-
-        binding.hotelListRv.adapter = hotelAdapter
-    }
 }

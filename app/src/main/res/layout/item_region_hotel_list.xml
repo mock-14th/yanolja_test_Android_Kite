@@ -91,7 +91,7 @@
                 android:orientation="horizontal">
 
                 <per.wsj.library.AndRatingBar
-                    android:id="@+id/motel_item_ratingbar"
+                    android:id="@+id/hotel_item_ratingbar"
                     style="@style/customRatingBarRegion"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     app:starSpacing="0dp" />
 
                 <TextView
-                    android:id="@+id/motel_item_rate_tv"
+                    android:id="@+id/hotel_item_rate_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -123,7 +123,6 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/hotel_item_rate_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="2dp"

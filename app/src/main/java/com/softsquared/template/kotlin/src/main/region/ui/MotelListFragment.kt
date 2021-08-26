@@ -40,7 +40,7 @@ class MotelListFragment(regionCode:Int):BaseFragment<FragmentRegionMotelRecoBind
 
     }
 
-    override fun onGetHotelListSuccess(response: MotelListResponse) {
+    override fun onGetMotelListSuccess(response: MotelListResponse) {
         dismissLoadingDialog()
         Log.d(TAG, "Get JWT 성공")
 
@@ -63,7 +63,7 @@ class MotelListFragment(regionCode:Int):BaseFragment<FragmentRegionMotelRecoBind
         }
     }
 
-    override fun onGetHotelListFailure(message: String) {
+    override fun onGetMotelListFailure(message: String) {
         TODO("Not yet implemented")
     }
 
