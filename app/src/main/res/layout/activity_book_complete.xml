@@ -228,66 +228,23 @@
                         app:layout_constraintTop_toBottomOf="@id/room_option_tv" />
 
                     <TextView
-                        android:id="@+id/checkin"
+                        android:id="@+id/check_in_and_out_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:gravity="center"
-                        android:text="체크인"
+                        android:text="체크인 21:00 | 체크아웃 14:00"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="@id/book_time_tv"
                         app:layout_constraintTop_toBottomOf="@id/book_time_tv" />
 
-                    <TextView
-                        android:id="@+id/checkin_time_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:gravity="center"
-                        android:text="11:00"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@id/checkin"
-                        app:layout_constraintTop_toBottomOf="@id/book_time_tv" />
-
-                    <TextView
-                        android:id="@+id/check_out_divider"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:gravity="bottom"
-                        android:text="|"
-                        android:textColor="@color/secondColor"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@id/checkin_time_tv"
-                        app:layout_constraintTop_toBottomOf="@id/book_time_tv" />
-
-                    <TextView
-                        android:id="@+id/checkout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="4dp"
-                        android:gravity="center"
-                        android:text="체크아웃"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@id/check_out_divider"
-                        app:layout_constraintTop_toBottomOf="@id/book_time_tv" />
-
-                    <TextView
-                        android:id="@+id/checkout_time_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:gravity="center"
-                        android:text="15:00"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@id/checkout"
-                        app:layout_constraintTop_toBottomOf="@id/book_time_tv" />
-
                     <View
-                        android:layout_marginTop="15dp"
-                        android:background="@color/secondColor"
-                        app:layout_constraintTop_toBottomOf="@id/checkout_time_tv"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dp"/>
+                        android:layout_height="0.5dp"
+                        android:background="@color/secondColor"
+                        app:layout_constraintTop_toBottomOf="@id/check_in_and_out_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -348,7 +305,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
-                        android:text="이수경"
+                        android:text="정지연"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -369,7 +326,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="01024242424"
+                        android:text="01088889999"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="@id/booker_name_tv"
@@ -443,7 +400,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
-                        android:text="이수경"
+                        android:text="정지연"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -464,7 +421,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="01024242424"
+                        android:text="01088889999"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="@id/user_name_tv"
@@ -637,7 +594,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="30,000원"
+                        android:text="69,800원"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"

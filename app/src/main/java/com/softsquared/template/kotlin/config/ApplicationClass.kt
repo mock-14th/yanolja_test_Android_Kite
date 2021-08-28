@@ -36,6 +36,9 @@ class ApplicationClass : Application() {
         // 로그인 여부 체크
         var loginState:Int =  0
 
+        // 예약 번호
+        var myBookedNum = 0
+
         // 단위 변경 함수
         fun dpToPx(dp: Int): Int {
             return ((dp * Resources.getSystem().displayMetrics.density).toInt());

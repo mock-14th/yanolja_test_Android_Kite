@@ -81,14 +81,14 @@ class MRoomHolder(val binding: ItemMotelRoomListBinding, var context: Context) :
 
         // 대실 가격
         if (roomList.rentPriceTxt != "예약마감") {
-            binding.rentPriceTv.text = formatter.format(roomList.rentPriceTxt.toInt()) + "원"
+            binding.rentPriceTv.text = formatter.format(roomList.rentPriceTxt?.toInt()) + "원"
         } else {
             binding.rentPriceTv.text = roomList.rentPriceTxt
         }
 
         // 숙박 가격
         if (roomList.sleepPrcieTxt != "예약마감") {
-            binding.sleepPriceTv.text = formatter.format(roomList.sleepPrcieTxt.toInt()) + "원"
+            binding.sleepPriceTv.text = formatter.format(roomList.sleepPrcieTxt?.toInt()) + "원"
         } else {
             binding.sleepPriceTv.text = roomList.sleepPrcieTxt
         }

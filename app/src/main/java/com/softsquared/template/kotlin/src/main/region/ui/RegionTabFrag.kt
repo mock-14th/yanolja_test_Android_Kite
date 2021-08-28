@@ -176,7 +176,6 @@ class RegionTabFrag : BaseFragment<FragmentTabRegionBinding>(
 
                     1 -> { // 서초/방배
                         nextIntent.putExtra("region", 3)
-                        showCustomToast("regioncode:3")
                         startActivity(nextIntent)
                     }
                 }

@@ -364,6 +364,7 @@
                     android:orientation="horizontal">
 
                     <EditText
+                        android:id="@+id/same_phone_tv"
                         android:backgroundTint="@color/secondColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -474,7 +475,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_marginEnd="20dp"
-                    android:text="50,000원"
+                    android:text="69,800원"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -595,7 +596,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="20dp"
-                        android:text="50,000원"
+                        android:text="69,800원"
                         android:textColor="@color/mainColor"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -826,7 +827,7 @@
                     android:layout_height="55dp"
                     android:layout_marginVertical="15dp"
                     android:background="@drawable/bg_maincolor_rounded"
-                    android:text="60,000원 결제하기"
+                    android:text="69,800원 결제하기"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"

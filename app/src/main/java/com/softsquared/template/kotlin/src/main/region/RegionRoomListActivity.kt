@@ -107,8 +107,6 @@ class RegionRoomListActivity :
                 val endDate = data!!.getStringExtra("endDate")
                 val showingDate = data!!.getStringExtra("showingDate")
 
-                showCustomToast("showingDate:" + showingDate)
-
                 // 날짜 설정
                 binding2.fragListCalendarTv.text = showingDate
 

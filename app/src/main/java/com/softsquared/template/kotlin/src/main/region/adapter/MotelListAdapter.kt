@@ -10,6 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.CenterInside
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.softsquared.template.kotlin.R
 import com.softsquared.template.kotlin.databinding.ItemRegionMotelListBinding
 import com.softsquared.template.kotlin.databinding.ItemTabRegionMainBinding
@@ -54,21 +59,28 @@ class MotelListAdapter(var itemList:ArrayList<MotelListData>, val fragment_s: Fr
             binding.motelItemMotelNameTv.text = itemList.motelNameTxt
 
             // 대표사진
-            Glide.with(itemView).load(itemList.photoIV).into(binding.itemHotelIv)
+            Glide.with(itemView).load(itemList.photoIV).transform(CenterInside(),RoundedCorners(24)).into(binding.itemHotelIv)
 
             // 평균별점
             binding.motelItemRatingbar.rating = itemList.rating!!.toFloat()
             binding.motelItemRateTv.text = itemList.rating
 
             // 후기개수
-            binding.motelItemCommentNumTv.text = itemList.commentCnt.toString()
+            binding.motelItemCommentNumTv.text = "(" + itemList.commentCnt.toString() + ")"
 
             // 대실가격
-            binding.itemRentPriceTv.text = itemList.rentPrice
+            if(itemList.rentPrice != null) {
+                binding.itemRentPriceTv.text = itemList.rentPrice + "원"
+            }else{
+                binding.itemRentPriceTv.text = "예약마감"
+            }
 
             // 숙박가격
-            binding.itemSleepPriceTv.text = itemList.sleepPrcie
-
+            if(itemList.sleepPrcie != null) {
+                binding.itemSleepPriceTv.text = itemList.sleepPrcie + "원"
+            }else{
+                binding.itemSleepPriceTv.text = "예약마감"
+            }
             val pos = adapterPosition
             if(pos!= RecyclerView.NO_POSITION)
             {
